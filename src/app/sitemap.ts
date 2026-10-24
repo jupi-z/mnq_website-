@@ -1,6 +1,8 @@
 import type { MetadataRoute } from "next";
 import { locales, localPath, slugs, SITE_URL } from "@/lib/site";
 
+export const dynamic = "force-static";
+
 export default function sitemap():MetadataRoute.Sitemap {
   const home = locales.map(locale=>({url:SITE_URL+localPath(locale)}));
   const pages = locales.flatMap(locale=>slugs.map(slug=>({url:SITE_URL+localPath(locale,slug)})));

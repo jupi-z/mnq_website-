@@ -2,11 +2,15 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { content, localPath, type Locale } from "@/lib/site";
+import { usePathname } from "next/navigation";
+import { content, localPath, isSlug, type Locale } from "@/lib/site";
 
 export function SiteHeader({locale}:{locale:Locale}) {
   const text = content[locale];
+  const pathname = usePathname();
   const other:Locale = locale === "fr" ? "en" : "fr";
+  const currentSlug = pathname.split("/").filter(Boolean)[1];
+  const otherHref = currentSlug && isSlug(currentSlug) ? localPath(other,currentSlug) : localPath(other);
   const [open, setOpen] = useState(false);
   const [dark, setDark] = useState(false);
   useEffect(() => {
@@ -32,7 +36,7 @@ export function SiteHeader({locale}:{locale:Locale}) {
           {text.nav.map(link => <Link href={localPath(locale,link.slug)} key={link.slug}>{link.label}</Link>)}
         </nav>
         <div className="header-controls">
-          <Link className="locale-switch" href={localPath(other)} lang={other} hrefLang={other} aria-label={other === "en" ? "Read in English" : "Lire en français"}>{other.toUpperCase()}</Link>
+          <Link className="locale-switch" href={otherHref} lang={other} hrefLang={other} aria-label={other === "en" ? "Read in English" : "Lire en français"}>{other.toUpperCase()}</Link>
           <button type="button" className="theme-toggle" aria-label={dark ? text.common.light : text.common.dark} onClick={toggleTheme} title={dark ? text.common.light : text.common.dark}>{dark ? "☀" : "◐"}</button>
           <button type="button" className="mobile-toggle" aria-label={open ? text.common.close : text.common.navigation} aria-controls="mobile-nav" aria-expanded={open} onClick={() => setOpen(!open)}>
             <span className="menu-line"/><span className="menu-line"/>
