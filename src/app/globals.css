@@ -34,6 +34,11 @@ p {color:var(--muted)}
 .site-header {position:relative;z-index:20;border-bottom:1px solid var(--line);background:var(--paper)}
 .header-inner {height:92px;display:flex;align-items:center;gap:36px;justify-content:space-between}
 .brand {display:inline-flex;flex-direction:column;justify-content:center;flex-shrink:0;line-height:1}
+.brand-fallback {display:flex;flex-direction:column;justify-content:center}
+.brand-logo {display:none;width:225px;height:auto;max-width:100%;object-fit:contain}
+.brand-logo.is-loaded {display:block}
+:root[data-theme="dark"] .brand-logo {background:#fff;padding:3px}
+.visually-hidden {position:absolute!important;width:1px!important;height:1px!important;padding:0!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
 .brand-main {font-size:24px;font-weight:800;letter-spacing:-1.2px}
 .brand-sub {display:flex;align-items:center;justify-content:center;gap:9px;font-size:9px;letter-spacing:6px;padding-left:6px;margin-top:7px}
 .brand-stroke {height:2px;width:19px;background:var(--accent)}

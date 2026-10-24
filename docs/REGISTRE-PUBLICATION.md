@@ -13,7 +13,7 @@
 | Aura, agroalimentaire, photovoltaïque | Projets prospectifs | Ne pas évoquer de réalisations ou infrastructures actives |
 | Adresse contact@monarquegrp.com | Déjà utilisée en correspondance professionnelle | À tester avant mise en production |
 | Numéro téléphonique Groupe | Non vérifié | Non publié |
-| Références SEL, MYM Advisor, autres clients | Autorizations de publication non attestées | Non publiées |
+| Références SEL, MYM Advisor, autres clients | Autorisations de publication non attestées | Non publiées |
 | RCCM, ID Nat, identifiants fiscaux | Numéros non présents dans le présent registre | Ne pas inventer |
 | Capital social / parts d'associés | Détail statutaire mais exclus des contenus marketing publics par choix éditorial | Non publié |
 | Énoncé de mission, valeurs, slogan | Propositions éditoriales | Ne pas présenter comme slogan légal/ancien validé |

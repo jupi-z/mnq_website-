@@ -13,6 +13,7 @@ export function SiteHeader({locale}:{locale:Locale}) {
   const otherHref = currentSlug && isSlug(currentSlug) ? localPath(other,currentSlug) : localPath(other);
   const [open, setOpen] = useState(false);
   const [dark, setDark] = useState(false);
+  const [brandLoaded, setBrandLoaded] = useState(false);
   useEffect(() => {
     const stored = window.localStorage.getItem("monarque-theme");
     const enabled = stored === "dark";
@@ -29,8 +30,8 @@ export function SiteHeader({locale}:{locale:Locale}) {
     <header className="site-header">
       <div className="shell header-inner">
         <Link href={localPath(locale)} className="brand" aria-label="MonarQue Group — accueil">
-          <span className="brand-main">MONARQUE</span>
-          <span className="brand-sub"><span className="brand-stroke"/>GROUP<span className="brand-stroke"/></span>
+          <span className={"brand-fallback" + (brandLoaded ? " visually-hidden" : "")}><span className="brand-main">MONARQUE</span><span className="brand-sub"><span className="brand-stroke"/>GROUP<span className="brand-stroke"/></span></span>
+          <img src="/brand/logo-horizontal.webp" alt="" className={"brand-logo" + (brandLoaded ? " is-loaded" : "")} onLoad={() => setBrandLoaded(true)} onError={() => setBrandLoaded(false)}/>
         </Link>
         <nav className="desktop-nav" aria-label={locale === "fr" ? "Navigation principale" : "Main navigation"}>
           {text.nav.map(link => <Link href={localPath(locale,link.slug)} key={link.slug}>{link.label}</Link>)}
