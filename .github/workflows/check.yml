@@ -1,14 +1,14 @@
 name: Website quality gate
-
 on:
   pull_request:
   push:
     branches: [main]
-
+permissions:
+  contents: read
 jobs:
   verify:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 18
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -17,3 +17,15 @@ jobs:
       - run: npm install --no-audit --no-fund
       - run: npm run typecheck
       - run: npm run build
+      - run: node scripts/check-static.mjs
+      - run: npx playwright install --with-deps chromium
+      - run: npm run test:e2e
+      - name: Keep browser traces on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: browser-failure-traces
+          path: |
+            test-results/
+            playwright-report/
+          retention-days: 5

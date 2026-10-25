@@ -8,6 +8,7 @@ import { content, localPath, isSlug, type Locale } from "@/lib/site";
 export function SiteHeader({locale}:{locale:Locale}) {
   const text = content[locale];
   const pathname = usePathname();
+  const normalizedPath = pathname.endsWith("/") ? pathname : pathname + "/";
   const other:Locale = locale === "fr" ? "en" : "fr";
   const currentSlug = pathname.split("/").filter(Boolean)[1];
   const otherHref = currentSlug && isSlug(currentSlug) ? localPath(other,currentSlug) : localPath(other);
@@ -34,7 +35,7 @@ export function SiteHeader({locale}:{locale:Locale}) {
           <img src="/brand/logo-horizontal.webp" alt="" className={"brand-logo" + (brandLoaded ? " is-loaded" : "")} onLoad={() => setBrandLoaded(true)} onError={() => setBrandLoaded(false)}/>
         </Link>
         <nav className="desktop-nav" aria-label={locale === "fr" ? "Navigation principale" : "Main navigation"}>
-          {text.nav.map(link => <Link href={localPath(locale,link.slug)} key={link.slug} aria-current={pathname === localPath(locale,link.slug) ? "page" : undefined}>{link.label}</Link>)}
+          {text.nav.map(link => <Link href={localPath(locale,link.slug)} key={link.slug} aria-current={normalizedPath === localPath(locale,link.slug) ? "page" : undefined}>{link.label}</Link>)}
         </nav>
         <div className="header-controls">
           <Link className="locale-switch" href={otherHref} lang={other} hrefLang={other} aria-label={other === "en" ? "Read in English" : "Lire en français"}>{other.toUpperCase()}</Link>
@@ -45,7 +46,7 @@ export function SiteHeader({locale}:{locale:Locale}) {
         </div>
       </div>
       <nav id="mobile-nav" className={"mobile-nav" + (open ? " is-open" : "")} aria-label={locale === "fr" ? "Navigation mobile" : "Mobile navigation"}>
-        {text.nav.map(link => <Link href={localPath(locale,link.slug)} onClick={() => setOpen(false)} key={link.slug} aria-current={pathname === localPath(locale,link.slug) ? "page" : undefined}>{link.label}<span aria-hidden="true">↗</span></Link>)}
+        {text.nav.map(link => <Link href={localPath(locale,link.slug)} onClick={() => setOpen(false)} key={link.slug} aria-current={normalizedPath === localPath(locale,link.slug) ? "page" : undefined}>{link.label}<span aria-hidden="true">↗</span></Link>)}
       </nav>
     </header>
   );

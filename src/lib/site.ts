@@ -9,7 +9,6 @@ export type Slug = (typeof slugs)[number];
 
 export const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL || "https://monarquegrp.com").replace(/\/$/, "");
 export const SITE_READY = process.env.NEXT_PUBLIC_SITE_READY === "true";
-export const COMPANY_OPERATIONAL = process.env.NEXT_PUBLIC_COMPANY_OPERATIONAL === "true";
 
 export function isLocale(value: string): value is Locale {
   return value === "fr" || value === "en";
