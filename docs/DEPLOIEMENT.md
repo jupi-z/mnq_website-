@@ -27,3 +27,6 @@ L'exemple `deploy/nginx.conf` configure le service HTTP statique. TLS, sauvegard
 
 ## Revue indépendante
 Après passage des contrôles CI et de la revue humaine du contenu, faire vérifier par Codex : navigation, accessibilité, rendu multi-écrans, référencement, dépendances, optimisation médias, exactitude des informations, absence de secrets et conformité de la politique de données.
+
+## Routes historiques
+L'exemple de configuration Nginx inclut deux redirections 301 pour les anciennes rubriques institutionnelles connues. La liste complète des anciennes URLs doit être rapprochée des archives du précédent site avant ouverture à l'indexation.
