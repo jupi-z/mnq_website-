@@ -30,7 +30,7 @@ La V2 **ne publie pas le prototype HTML** : elle retranscrit son langage dans le
 
 - Aucune modification au processus de publication en production, aux secrets, au serveur, aux DNS ou au vhost; V2 restera sur branche de revue tant que la direction ne valide pas ses captures.
 - Ne pas modifier les fichiers originaux des logos fournis par la direction et vérifier leur provenance avant tout ajout de marque.
-- Les polices propriétaires embarquées dans le HTML source ne sont pas redistribuées : la V2 utilise une pile de polices système similaire. Si une police externe est adoptée plus tard, la licence et le canal de distribution devront être vérifiés.
+- La V2 retrouve les familles Manrope et Instrument Serif via `next/font/google` : téléchargement au build, auto-hébergement par Next.js et aucun chargement externe de polices chez les visiteurs. Aucun fichier de police n'est copié depuis les données intégrées au prototype. Vérifier la disponibilité de cette étape dans le pipeline de compilation.
 - Les animations doivent respecter \`prefers-reduced-motion\`, éviter le débordement, ne pas dépendre d'une API distante et fonctionner sans vidéo.
 - Le backend Monarque Connect et un CMS ne sont pas nécessaires pour le site V2.
 

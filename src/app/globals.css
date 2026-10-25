@@ -10,9 +10,9 @@
   --lime:#dbdfbe;
   --mist:#eaece3;
   --pad:clamp(22px,5vw,88px);
-  --display: "Avenir Next","Century Gothic","Trebuchet MS",Arial,sans-serif;
-  --body:"Avenir Next","Segoe UI",Arial,sans-serif;
-  --serif:"Iowan Old Style","Baskerville","Palatino Linotype",Georgia,serif;
+  --display:var(--atlas-manrope),"Avenir Next","Century Gothic",Arial,sans-serif;
+  --body:var(--atlas-manrope),"Avenir Next","Segoe UI",Arial,sans-serif;
+  --serif:var(--atlas-instrument),"Iowan Old Style","Baskerville",Georgia,serif;
 }
 :root[data-theme="dark"] {
   color-scheme:dark;

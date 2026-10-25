@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "../globals.css";
 import { SITE_READY, SITE_URL } from "@/lib/site";
+import {atlasManrope,atlasInstrument} from "@/lib/fonts";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -12,5 +13,5 @@ export const metadata: Metadata = {
   alternates: { canonical: "/fr/", languages: {fr:"/fr/", en:"/en/"} }
 };
 export default function DefaultLayout({children}:{children:React.ReactNode}) {
-  return <html lang="fr"><body>{children}</body></html>;
+  return <html lang="fr"><body className={atlasManrope.variable+" "+atlasInstrument.variable}>{children}</body></html>;
 }
