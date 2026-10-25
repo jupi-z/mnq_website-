@@ -10,21 +10,21 @@
 - [x] Mentions préopérationnelles et différenciation des structures.
 - [x] Documentation d'exploitation et d'audit Codex.
 
-## Conditions indépendantes du code — à lever avant publication
-- [x] Accès VPS, DNS, vhost dédié, TLS et renouvellement vérifiés. Le portail reste absent de la racine active.
-- [x] Configuration logrotate dédiée au site : rotation quotidienne et purge maximale à 30 jours; journald limité à 7 jours; configuration globale des autres sites inchangée. Simulation syntaxique logrotate réussie; purge réelle et test de fichiers synthétiques encore à vérifier.
+## État d'exploitation — 25 octobre 2026
+- [x] Accès VPS, DNS, vhost dédié, TLS et renouvellement vérifiés. Le portail est en ligne sur le domaine canonique.
+- [x] Configuration logrotate dédiée au site : rotation quotidienne et purge maximale à 30 jours; journald limité à 7 jours; configuration globale des autres sites inchangée. Simulation syntaxique et test de purge sur fichier synthétique de 31 jours réussis.
 - [x] La direction confirme que `contact@monarquegrp.com` fonctionne et est hébergée par Hostinger Mail.
 - [x] Test de réception du courriel effectué par un envoi à la même boîte; message de test supprimé après vérification.
 - [x] RCCM et Identification nationale renseignés à partir des deux certificats GUCE officiels (sans publier les scans).
 - [x] Fonctions de direction confirmées par la direction et les statuts notariés : Président Ameno Kizele Mwine; DG Manels Muvumbi Mundu. Divergence d'intitulé au RCCM signalée au GUCE; selon la direction, réponse orale : « pas grave / okay ». **Ne pas maintenir cette divergence seule comme gate de publication**; ne pas prétendre qu'une rectification écrite a été délivrée.
 - [x] Mentions FR/EN renseignées avec l'éditeur, dirigeants, identifiants et fournisseur VPS issu des conditions Hostinger publiques, sous réserve d'une entité différente au contrat. Localisation technique précise non publiée.
 - [x] Politique FR/EN alignée sur les traitements constatés et limites d'automatisation; voir `docs/DONNEES-RETENTION-30J.md`. Les messages professionnels anciens nécessitent une qualification de finalité par le responsable de boîte.
-- [ ] Produire le récépissé de déclaration préalable du traitement personnel applicable et, pour les transferts hors RDC, la décision d'autorisation applicable ou confirmation écrite de l'autorité sur l'exemption. Art. 186, 201 et 220 du Code du numérique; voir le rapport de finalisation.
-- [ ] Obtenir l'approbation éditoriale globale requise par `docs/PROCEDURE-PUBLICATION.md`.
-- [x] Contrôles Playwright FR/EN et responsive précédemment examinés; 24 tests Playwright réussis sur le candidat actualisé. Captures disponibles sur un candidat antérieur, pas du domaine public ni de ce dernier texte.
-- [x] Réaliser un essai de déploiement sur environnement de préproduction, tester les anciennes URLs et préparer la release VPS sans l'activer.
+- [ ] Les pièces formelles de déclaration et d'autorisation/exemption des traitements et transferts n'ont pas été fournies. La direction a ordonné la mise en ligne et assume cette décision; cela ne vaut pas certification juridique par Codex.
+- [x] La direction a explicitement ordonné la mise en ligne. Les contenus restent préopérationnels; l'indexation demeure fermée.
+- [x] Contrôles Playwright FR/EN et responsive : 24 tests réussis sur le candidat; après déploiement, les 20 routes publiques ont répondu 200 et 140 mesures sur sept largeurs ont confirmé l'absence de débordement. Captures du domaine public dans `docs/qa-captures/2026-10-25/`.
+- [x] Préproduction et publication réalisées; l'artefact du commit fusionné a été vérifié avant bascule.
 - [x] Exécuter l'audit, les corrections de confidentialité et l'essai de préproduction; voir le rapport actualisé pour les preuves et les limites.
-- [ ] Exécuter un build avec `NEXT_PUBLIC_SITE_READY=true` uniquement après levée des conditions légales, éditoriales et techniques et décision d'indexation publique; vérifier robots, sitemap et canonical.
+- [x] Build public avec `NEXT_PUBLIC_SITE_READY=false`; `robots.txt` renvoie `Disallow: /` et les pages portent `noindex, nofollow`. L'indexation reste désactivée.
 
 ## Définition du terme « finalisé »
 **Finalisé techniquement :** le code du portail, ses assets requis et ses tests sont prêts pour revue. **Publié :** le domaine dessert réellement les fichiers validés sur une infrastructure maintenue avec une politique de données et des mentions légales vérifiées. Les deux états ne doivent jamais être confondus.

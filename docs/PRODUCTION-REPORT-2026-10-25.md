@@ -1,7 +1,7 @@
-# État de mise en production — 25 octobre 2026
+# Rapport de validation finale — 25 octobre 2026
 
-**Le portail institutionnel n'est pas encore publié.** Le VPS sert actuellement la configuration HTTPS dédiée et le certificat valide, mais ne sert pas les pages du portail; la politique d'indexation reste fermée.
+Le portail institutionnel est maintenant en ligne sur [monarquegrp.com](https://monarquegrp.com), avec HTTPS et les redirections canoniques vérifiés. La release servie a été construite depuis le commit fusionné `7d6a83bf837b3b0ded73e9104664969880741996`.
 
-Le rapport initial de cette date est remplacé par [`FINALISATION-2026-10-25.md`](FINALISATION-2026-10-25.md), qui reflète les arbitrages direction, les contrôles réellement exécutés et le blocage réglementaire restant. Les anciennes mentions prétendant que le vhost, le certificat, l'essai de réception email ou la préparation de l'infrastructure étaient absents sont périmées.
+L'indexation publique reste désactivée par choix : `robots.txt` interdit l'exploration et les pages sont `noindex, nofollow`. Le contrôle indépendant n'a pas certifié les formalités de traitement/transfert de données; la direction a explicitement ordonné la publication et assumé sa décision.
 
-Le détail d'adressage du VPS, les chemins privés et les emplacements de sauvegarde ne sont pas publiés dans ce dépôt.
+Les résultats d'automatisation, le certificat, les contrôles de 20 routes et des 140 dimensions responsive, les états Nginx/services, la sauvegarde et le rollback vérifié sont consignés dans [`FINALISATION-2026-10-25.md`](FINALISATION-2026-10-25.md). Les identifiants réseau, chemins d'administration et emplacements de sauvegarde restent privés.
