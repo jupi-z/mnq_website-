@@ -48,6 +48,18 @@ test("Mobile navigation works without horizontal overflow",async ({page})=>{
   expect(dimensions.width).toBeLessThanOrEqual(dimensions.view+1);
 });
 
+test("Every French and English route fits a 320px mobile viewport",async ({page})=>{
+  await page.setViewportSize({width:320,height:844});
+  for(const locale of ["fr","en"]) {
+    for(const slug of ["",...slugs]) {
+      const route="/"+locale+"/"+(slug?slug+"/":"");
+      await page.goto(route);
+      const dimensions=await page.evaluate(()=>({width:document.documentElement.scrollWidth,view:window.innerWidth}));
+      expect(dimensions.width,route+" horizontal overflow").toBeLessThanOrEqual(dimensions.view+1);
+    }
+  }
+});
+
 for(const locale of ["fr","en"]) {
   for(const slug of slugs) {
     test(locale+"/"+slug+" renders successfully",async ({page})=>{
