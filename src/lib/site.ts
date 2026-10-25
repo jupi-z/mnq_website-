@@ -40,6 +40,7 @@ export type LocaleContent = {
   nav: { slug: Slug; label: string }[];
   home: {
     eyebrow: string; title: string; lead: string;
+    visualNote: string;
     explore: string; partnership: string;
     introLabel: string; introTitle: string; introBody: string;
     areasLabel: string; areasTitle: string;
@@ -78,6 +79,7 @@ export const content: Record<Locale, LocaleContent> = {
       eyebrow:"GROUPE ENTREPRENEURIAL • KOLWEZI, RDC",
       title:"Faire émerger des activités qui créent une valeur réelle.",
       lead:"MonarQue Group structure des initiatives économiques et technologiques, en préparation de son lancement commercial.",
+      visualNote:"Illustration conceptuelle du relief régional — visuel non documentaire.",
       explore:"Découvrir le Groupe", partnership:"Construire un partenariat",
       introLabel:"01 / NOTRE IDENTITÉ",
       introTitle:"Une vision entrepreneuriale. Plusieurs domaines d'action.",
@@ -226,6 +228,7 @@ export const content: Record<Locale, LocaleContent> = {
       eyebrow:"ENTREPRENEURIAL GROUP • KOLWEZI, DRC",
       title:"Building initiatives that create real value.",
       lead:"MonarQue Group is preparing business and technology initiatives ahead of its commercial launch.",
+      visualNote:"Conceptual illustration of regional terrain — not a documentary image.",
       explore:"Discover the Group",partnership:"Explore a partnership",
       introLabel:"01 / OUR IDENTITY",introTitle:"One entrepreneurial vision. Several fields of action.",
       introBody:"Based in Kolwezi, MonarQue Group S.A.S. is a multisector company. Technology is one of its core capabilities alongside business activities and prospective industrial ventures.",
