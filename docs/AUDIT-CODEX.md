@@ -1,7 +1,7 @@
 # Mandat de revue indépendante — Codex
 
 ## Rôle
-Codex intervient exclusivement comme auditeur indépendant du portail développé ici. Il ne doit ni redéfinir la stratégie du Groupe ni inventer des activités ou transformer LTEX en société juridique. Il peut proposer des correctifs en PR distincte avec preuves.
+Le présent document décrit la **première phase d'audit indépendant**. La direction a également confirmé que Codex a accès à son VPS et peut préparer la mise en production selon `docs/CODEX-HANDOFF-PRODUCTION.md`. Il ne doit ni redéfinir la stratégie du Groupe ni inventer des activités ou transformer LTEX en société juridique. Il peut proposer des correctifs en PR distincte avec preuves.
 
 ## Contrôles obligatoires
 1. `npm install && npm run typecheck && npm run build && node scripts/check-static.mjs && npm run test:e2e`.
