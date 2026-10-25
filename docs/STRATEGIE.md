@@ -44,4 +44,4 @@ Chaque affirmation sur une offre, une référence, un partenariat, une autorisat
 Pas de chiffres marketing, clients, témoignages, investissements levés ou employés sans preuve.
 
 ## Statut d'exploitation
-La direction a indiqué que la société n'a pas encore démarré ses activités commerciales et vise le premier lundi de mars 2027. Le site peut être publié comme site institutionnel de société constituée, mais ne doit pas annoncer des opérations déjà lancées. Le drapeau NEXT_PUBLIC_COMPANY_OPERATIONAL reste false jusqu'à preuve de démarrage effectif. Aucune bascule automatique fondée sur la date n'est autorisée.
+La direction a indiqué que la société n'a pas encore démarré ses activités commerciales et vise le premier lundi de mars 2027. Le site peut être publié comme site institutionnel de société constituée, mais ne doit pas annoncer des opérations déjà lancées. Le contenu préopérationnel doit être réévalué après confirmation officielle du démarrage réel. Aucune bascule automatique fondée sur la date n'est autorisée.

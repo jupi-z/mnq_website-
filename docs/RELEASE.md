@@ -14,8 +14,10 @@
 - [x] VPS déjà accessible à Codex, selon la direction (25/10/2026) — à tester côté serveur.
 - [x] Domaine `monarquegrp.com` déjà configuré vers ce VPS, selon la direction — vérifier la résolution effective.
 - [ ] Vérifier l'état du VPS, les services existants, les vhosts, le DNS effectif, TLS, renouvellement, pare-feu, sauvegarde et rollback.
-- [ ] Tester en réel la réception de `contact@monarquegrp.com`.
-- [ ] Compléter les mentions légales avec RCCM, identification nationale et autres mentions requises selon conseil local.
+- [x] La direction confirme que `contact@monarquegrp.com` fonctionne et est hébergée par Hostinger Mail.
+- [ ] Documenter un test technique de réception à l'issue de la mise en ligne.
+- [x] RCCM et Identification nationale renseignés à partir des deux certificats GUCE officiels (sans publier les scans).
+- [ ] Compléter l'identité du prestataire VPS et ses coordonnées, puis valider les mentions applicables localement et la concordance des fonctions direction/RCCM.
 - [ ] Valider la politique de confidentialité à partir des journaux et de la conservation réellement pratiquée par l'hébergeur et la messagerie.
 - [ ] Valider les qualifications et les fiches d'activités publiées par la direction avant toute indexation.
 - [ ] Examiner les previews desktop/mobiles et supprimer tous défauts de géométrie ou d'accessibilité bloquants.
@@ -28,3 +30,6 @@
 
 ## Important
 Le démarrage envisagé des activités commerciales en mars 2027 est un projet déclaré par la direction, pas la preuve qu'elles ont commencé. Modifier le statut public seulement après confirmation de l'exploitation effective.
+
+## Garde-fou de compilation
+Par défaut, le build est non indexable. Pour une compilation de publication volontaire, `NEXT_PUBLIC_SITE_READY=true` exige `MONARQUE_RELEASE_APPROVED=YES`. Cette variable n'est pas une preuve de conformité : elle documente une approbation humaine uniquement après validation des cases ci-dessus. Les tests statiques détectent indépendamment le mode d'indexation et la présence des identifiants officiels sur les pages FR/EN.
