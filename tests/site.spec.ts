@@ -11,6 +11,7 @@ test("Home has the official logo and a prelaunch disclosure", async ({page}) => 
   await page.goto("/fr/");
   await expect(page.getByRole("heading",{level:1})).toBeVisible();
   await expect(page.getByText(/Activités en préparation/i).first()).toBeVisible();
+  await expect(page.locator(".brand-logo")).toBeVisible();
   const naturalWidth=await page.locator(".brand-logo").evaluate((img:HTMLImageElement)=>img.naturalWidth);
   expect(naturalWidth).toBeGreaterThan(0);
   expect(errors).toEqual([]);
@@ -36,7 +37,7 @@ test("Theme preference toggles and persists", async ({page})=>{
 });
 
 test("Mobile navigation works without horizontal overflow",async ({page})=>{
-  await page.setViewportSize({width:375,height:812});
+  await page.setViewportSize({width:320,height:730});
   await page.goto("/fr/");
   await page.getByRole("button",{name:"Ouvrir le menu"}).click();
   await expect(page.locator("#mobile-nav")).toHaveClass(/is-open/);

@@ -5,7 +5,7 @@
   --muted:#62676c;
   --line:#d8d9d6;
   --subtle:#f5f5f2;
-  --accent:#df452e;
+  --accent:#bf301c;
   --contrast:#111318;
   --inverse:#fff;
 }
@@ -35,8 +35,7 @@ p {color:var(--muted)}
 .header-inner {height:92px;display:flex;align-items:center;gap:36px;justify-content:space-between}
 .brand {display:inline-flex;flex-direction:column;justify-content:center;flex-shrink:0;line-height:1}
 .brand-fallback {display:flex;flex-direction:column;justify-content:center}
-.brand-logo {display:none;width:225px;height:auto;max-width:100%;object-fit:contain}
-.brand-logo.is-loaded {display:block}
+.brand-logo {display:block;width:225px;height:auto;max-width:100%;object-fit:contain}
 :root[data-theme="dark"] .brand-logo {background:#fff;padding:3px}
 .visually-hidden {position:absolute!important;width:1px!important;height:1px!important;padding:0!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
 .brand-main {font-size:24px;font-weight:800;letter-spacing:-1.2px}
@@ -196,3 +195,7 @@ p {color:var(--muted)}
 .channel strong {font-size:17px;line-height:1.4}
 .channel:hover {color:var(--accent)}
 @media(max-width:790px) {.channel-grid {grid-template-columns:1fr}.channel:nth-child(even) {padding-left:0;border-left:0}}
+
+@media(max-width:790px) {.brand-logo {width:155px}}
+@media(max-width:480px) {.brand-logo {width:145px}.header-inner {gap:12px}.header-controls {gap:8px}}
+@media(max-width:360px) {.brand-logo {width:120px}}

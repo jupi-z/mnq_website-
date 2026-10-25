@@ -21,3 +21,6 @@ Chaque anomalie doit fournir : gravité P0-P3, URL ou fichier, procédure de rep
 
 ## Critères de sortie
 Pas de P0/P1 ouverts; contrôles automatisés verts; mentions légales et coordonnées vérifiées; décision de mise en ligne documentée. Le site n'est pas considéré comme publié tant que les DNS et l'hébergement ne sont pas vérifiés.
+
+## Points de vigilance issus de la revue visuelle
+Les premiers screenshots ont montré un remplacement tardif du logo par un composant client. Il a été éliminé : vérifier que le logo officiel est visible dès le rendu initial sans effet de substitution. Le petit texte rouge doit avoir un contraste AA suffisant après remplacement de l'accent UI par #bf301c. Le logo conserve strictement ses couleurs originales.
