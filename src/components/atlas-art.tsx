@@ -50,8 +50,8 @@ export function AtlasArt({label}:{label:string}){
             const twist=2*t+offset+phase*.3;
             const radius=1+.17*Math.sin(3*t+offset);
             const x=radius*Math.cos(t+offset);
-            const y=.9*Math.sin(t+offset)+.30*Math.sin(t*2+offset);
-            const z=.63*Math.sin(t*2+offset+phase*.32)+zOff;
+            const y=.9*Math.sin(t+offset)+.30*Math.sin(t*2+offset)+zOff*Math.cos(t+offset)*1.25;
+            const z=.63*Math.sin(t*2+offset+phase*.32)+zOff*(.8+.3*Math.sin(t+offset));
             const turn=phase*.14+mouseX*.55;
             const xr=x*Math.cos(turn)-z*Math.sin(turn);
             const zr=x*Math.sin(turn)+z*Math.cos(turn);
