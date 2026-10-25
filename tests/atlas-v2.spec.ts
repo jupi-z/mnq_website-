@@ -40,3 +40,16 @@ for(const locale of ["fr","en"] as const){
     }
   });
 }
+
+test("Atlas fonts are applied to display, body and italic titles",async({page})=>{
+  await page.goto("/fr/");
+  await page.evaluate(()=>document.fonts.ready);
+  const fonts=await page.evaluate(()=>{
+    const h=document.querySelector(".atlas-hero h1");
+    const em=document.querySelector(".atlas-hero h1 em");
+    return {body:getComputedStyle(document.body).fontFamily,display:h?getComputedStyle(h).fontFamily:"",italic:em?getComputedStyle(em).fontFamily:""};
+  });
+  expect(fonts.body.toLowerCase()).toContain("manrope");
+  expect(fonts.display.toLowerCase()).toContain("manrope");
+  expect(fonts.italic.toLowerCase()).toContain("instrument");
+});
