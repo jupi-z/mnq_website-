@@ -17,3 +17,6 @@ Navigation principale, hero institutionnel, sections de secteurs, fiche d'activi
 
 ## Assets
 Trois images sources officielles remises par la direction : logo horizontal, logo complet, icône papillon. Avant déploiement intégrer des versions optimisées du contenu original aux chemins documentés dans `public/brand/README.md`. Aucun logo recréé ni altéré, aucun dessin génératif substitutif.
+
+## Contrastes et identité
+La palette graphique du logo n'est pas altérée. Pour les petits textes interactifs sur fond clair, l'accent d'interface est volontairement approfondi en `#bf301c` pour augmenter le contraste, tout en conservant le rouge et les autres couleurs du symbole officiel. Le bandeau supérieur du site reste blanc en mode sombre afin de présenter le logo officiel original sans remplacement chromatique.
