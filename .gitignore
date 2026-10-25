@@ -7,6 +7,7 @@ out/
 !.env.example
 .DS_Store
 coverage/
+.superpowers/
 
 playwright-report/
 test-results/
