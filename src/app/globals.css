@@ -199,3 +199,7 @@ p {color:var(--muted)}
 @media(max-width:790px) {.brand-logo {width:155px}}
 @media(max-width:480px) {.brand-logo {width:145px}.header-inner {gap:12px}.header-controls {gap:8px}}
 @media(max-width:360px) {.brand-logo {width:120px}}
+
+/* Keep the official full-color, dark-wordmark logo on a consistent light brand header. */
+:root[data-theme="dark"] .site-header {--paper:#ffffff;--ink:#111318;--line:#d8d9d6;--accent:#bf301c;color:#111318;background:#ffffff}
+:root[data-theme="dark"] .site-header .brand-logo {background:transparent;padding:0}
