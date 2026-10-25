@@ -21,3 +21,9 @@ Le projet utilise `output: "export"`, sans besoin de processus Node côté produ
 
 ## Limitations V1
 Pas de faux formulaire qui « envoie » sans backend; pas d'analytics sans validation des choix de confidentialité; pas d'espace investisseur ni CMS prématuré. Tant que les contrôles ne sont pas terminés, **ne pas présenter le site comme déployé ou publiable sans réserves**.
+
+## Déploiement sur un serveur Nginx
+L'exemple `deploy/nginx.conf` configure le service HTTP statique. TLS, sauvegarde et domaine restent à configurer pour l'hébergement choisi. Le déploiement de préproduction doit garder `NEXT_PUBLIC_SITE_READY=false`; le passage à `true` exige la levée documentée de tous les points de conformité.
+
+## Revue indépendante
+Après passage des contrôles CI et de la revue humaine du contenu, faire vérifier par Codex : navigation, accessibilité, rendu multi-écrans, référencement, dépendances, optimisation médias, exactitude des informations, absence de secrets et conformité de la politique de données.

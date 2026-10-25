@@ -1,8 +1,10 @@
-# Actifs officiels à intégrer avant publication
+# Identité officielle
 
-Fichiers attendus :
-- `logo-horizontal.webp` : conversion sans recadrage ni modification graphique du logo horizontal fourni.
-- `icone.webp` : conversion fidèle de l'icône fournie.
-- `logo-complet.webp` : conversion fidèle du logo complet fourni.
+Fichiers effectivement inclus dans le dépôt :
+- `logo-horizontal.webp` : dérivé fidèle du logo horizontal officiel communiqué par la direction (240 × 40, WebP compact, transparence préservée), utilisé dans l'en-tête.
+- `icone.webp` : dérivé fidèle de l'icône papillon officielle (64 × 64, WebP compact), utilisé en icône déclarée.
+- `/favicon.ico` : favicon 32 × 32 dérivée du papillon officiel.
 
-Les sources originales appartiennent à MonarQue Group S.A.S. et ne doivent être ni redessinées ni modifiées. L'intégration des fichiers binaires est une tâche de livraison obligatoire; le site affiche une signature typographique neutre tant que les fichiers ne sont pas intégrés.
+Un logo complet supplémentaire a été fourni par la direction, mais n'est pas indispensable à la présentation actuelle. Les fichiers d'origine haute résolution restent les fichiers de référence et ne sont ni redessinés ni modifiés. La compression appliquée aux dérivés web ne constitue pas une modification de l'identité du logo.
+
+Les actifs officiels doivent être validés visuellement sur fond clair et foncé avant diffusion publique.

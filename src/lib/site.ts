@@ -129,7 +129,7 @@ export const content: Record<Locale, LocaleContent> = {
         eyebrow:"PÔLES • MARQUES • PRODUITS",title:"Notre écosystème",
         intro:"Derrière une même ambition entrepreneuriale se trouvent des activités, des capacités internes et des produits différents. Aucun des éléments ci-dessous n'est qualifié de filiale juridiquement constituée sans documentation.",
         sections:[
-          {tag:"ACTIVITÉ",title:"Zingatia",body:"Agence de stratégie, communication, création numérique et services digitaux."},
+          {tag:"ACTIVITÉ EN PRÉPARATION",title:"Zingatia",body:"Activité d’agence numérique en préparation : stratégie, communication et création numérique."},
           {tag:"PÔLE INTERNE",title:"LTEX",body:"Capacité technologique transversale de MonarQue Group."},
           {tag:"PRODUIT EN DÉVELOPPEMENT",title:"Monarque Connect",body:"Plateforme logicielle de gestion d'entreprise en cours de développement."},
           {tag:"PROJET NUMÉRIQUE",title:"THYSLO",body:"Projet d'expérience interactive dédié à la découverte et à la compréhension du monde."},
@@ -257,7 +257,7 @@ export const content: Record<Locale, LocaleContent> = {
         {tag:"UNDER REVIEW",title:"Energy and infrastructure",body:"Opportunities under assessment, subject to studies, resources and applicable permits."}
       ]},
       ecosysteme:{eyebrow:"UNITS • BRANDS • PRODUCTS",title:"Our ecosystem",intro:"Our ecosystem includes different operating activities, internal capacities and products. None is labeled a legally incorporated subsidiary without supporting documentation.",sections:[
-        {tag:"ACTIVITY",title:"Zingatia",body:"Digital strategy, communications and creation services."},
+        {tag:"ACTIVITY IN PREPARATION",title:"Zingatia",body:"Digital agency initiative in preparation: strategy, communications and digital creation."},
         {tag:"INTERNAL UNIT",title:"LTEX",body:"Technology capabilities within MonarQue Group."},
         {tag:"PRODUCT IN DEVELOPMENT",title:"Monarque Connect",body:"Business management software platform currently under development."},
         {tag:"DIGITAL PROJECT",title:"THYSLO",body:"Interactive learning and world discovery project."},

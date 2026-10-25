@@ -16,4 +16,5 @@ for(const image of ["public/brand/logo-horizontal.webp","public/brand/icone.webp
 }
 assert.ok(existsSync("out/robots.txt"),"robots.txt missing");
 assert.ok(existsSync("out/sitemap.xml"),"sitemap.xml missing");
+assert.ok(existsSync("out/favicon.ico"),"Favicon missing");
 console.log("Static route, brand and prelaunch gates passed.");

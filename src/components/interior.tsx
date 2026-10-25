@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ContactChannels } from "@/components/contact-channels";
 import { content, localPath, type Locale, type Slug } from "@/lib/site";
 
 export function Interior({locale,slug}:{locale:Locale;slug:Slug}) {
@@ -22,7 +23,7 @@ export function Interior({locale,slug}:{locale:Locale;slug:Slug}) {
             <div className="detail-body"><h2>{section.title}</h2><p>{section.body}</p></div>
             <div aria-hidden="true" className="detail-index">0{index+1}</div>
           </article>)}
-          {isContact ? <div className="contact-action"><a href={"mailto:" + t.common.email} className="button button-primary">{t.common.write}<span aria-hidden="true">↗</span></a></div> : null}
+          {isContact ? <><ContactChannels locale={locale}/><div className="contact-action"><a href={"mailto:" + t.common.email} className="button button-primary">{t.common.write}<span aria-hidden="true">↗</span></a></div></> : null}
           {page.closing ? <div className="interior-note">{page.closing}</div> : null}
         </div>
       </section>

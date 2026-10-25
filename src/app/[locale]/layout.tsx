@@ -9,7 +9,7 @@ export const dynamicParams = false;
 export const metadata:Metadata = {
   metadataBase:new URL(SITE_URL),
   robots:{index:SITE_READY,follow:SITE_READY},
-  icons:{icon:[{url:"/brand/icone.webp",type:"image/webp"}]}
+  icons:{icon:[{url:"/favicon.ico",type:"image/x-icon"},{url:"/brand/icone.webp",type:"image/webp"}]}
 };
 export default async function LocaleLayout({children,params}:{children:React.ReactNode;params:Promise<{locale:string}>}) {
   const {locale}=await params;
