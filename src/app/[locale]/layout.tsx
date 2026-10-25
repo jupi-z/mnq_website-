@@ -3,6 +3,7 @@ import "../globals.css";
 import { isLocale, locales, SITE_READY, SITE_URL } from "@/lib/site";
 import { notFound } from "next/navigation";
 import { SiteShell } from "@/components/site-shell";
+import {atlasManrope,atlasInstrument} from "@/lib/fonts";
 
 export function generateStaticParams() { return locales.map(locale=>({locale})); }
 export const dynamicParams = false;
@@ -14,5 +15,5 @@ export const metadata:Metadata = {
 export default async function LocaleLayout({children,params}:{children:React.ReactNode;params:Promise<{locale:string}>}) {
   const {locale}=await params;
   if(!isLocale(locale)) notFound();
-  return <html lang={locale}><body><SiteShell locale={locale}>{children}</SiteShell></body></html>;
+  return <html lang={locale}><body className={atlasManrope.variable+" "+atlasInstrument.variable}><SiteShell locale={locale}>{children}</SiteShell></body></html>;
 }
