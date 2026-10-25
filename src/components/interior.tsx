@@ -18,7 +18,7 @@ export function Interior({locale,slug}:{locale:Locale;slug:Slug}) {
       </section>
       <section className="section-block interior-content">
         <div className="shell">
-          {page.sections.map((section,index)=><article className="detail-row" key={section.title}>
+          {page.sections.map((section,index)=><article className={"detail-row" + (isContact && index===0 ? " detail-row-contact-email" : "")} key={section.title}>
             <div className="detail-tag">{section.tag || String(index+1).padStart(2,"0")}</div>
             <div className="detail-body"><h2>{section.title}</h2><p>{section.body}</p></div>
             <div aria-hidden="true" className="detail-index">0{index+1}</div>

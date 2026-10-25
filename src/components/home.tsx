@@ -7,17 +7,19 @@ export function Home({locale}:{locale:Locale}) {
   return (
     <>
       <section className="hero">
-        <div className="hero-art" aria-hidden="true"><span className="arc arc-one"/><span className="arc arc-two"/><span className="arc arc-three"/><span className="art-line"/></div>
-        <div className="shell hero-content">
-          <div className="eyebrow hero-label"><span className="signal"/> {h.eyebrow}</div>
-          <p className="launch-status">{t.launchStatus}</p>
-          <h1>{h.title}</h1>
-          <p className="hero-lead">{h.lead}</p>
-          <div className="actions">
-            <Link className="button button-primary" href={localPath(locale,"groupe")}>{h.explore}<span aria-hidden="true">↗</span></Link>
-            <Link className="button button-text" href={localPath(locale,"partenariats")}>{h.partnership}<span aria-hidden="true">↗</span></Link>
+        <div className="shell hero-inner">
+          <div className="hero-content">
+            <div className="eyebrow hero-label"><span className="signal"/> {h.eyebrow}</div>
+            <p className="launch-status">{t.launchStatus}</p>
+            <h1>{h.title}</h1>
+            <p className="hero-lead">{h.lead}</p>
+            <div className="actions">
+              <Link className="button button-primary" href={localPath(locale,"groupe")}>{h.explore}<span aria-hidden="true">↗</span></Link>
+              <Link className="button button-text" href={localPath(locale,"partenariats")}>{h.partnership}<span aria-hidden="true">↗</span></Link>
+            </div>
           </div>
           <div className="hero-bottom"><span>MONARQUE GROUP S.A.S.</span><span>KOLWEZI · RDC</span></div>
+          <p className="hero-image-note">{h.visualNote}</p>
         </div>
       </section>
       <section className="section-block statement-section">
