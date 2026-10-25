@@ -17,8 +17,9 @@
 - [x] La direction confirme que `contact@monarquegrp.com` fonctionne et est hébergée par Hostinger Mail.
 - [ ] Documenter un test technique de réception à l'issue de la mise en ligne.
 - [x] RCCM et Identification nationale renseignés à partir des deux certificats GUCE officiels (sans publier les scans).
-- [ ] Compléter l'identité du prestataire VPS et ses coordonnées, puis valider les mentions applicables localement et la concordance des fonctions direction/RCCM.
-- [ ] Valider la politique de confidentialité à partir des journaux et de la conservation réellement pratiquée par l'hébergeur et la messagerie.
+- [x] Fonctions de direction confirmées par la direction et les statuts notariés : Président Ameno Kizele Mwine; DG Manels Muvumbi Mundu. Divergence d'intitulé au RCCM signalée au GUCE; selon la direction, réponse orale : « pas grave / okay ». **Ne pas maintenir cette divergence seule comme gate de publication**; ne pas prétendre qu'une rectification écrite a été délivrée.
+- [ ] Compléter les mentions applicables concernant l'éditeur et le prestataire VPS selon les documents contractuels; ne pas publier la localisation technique détaillée de l'infrastructure.
+- [ ] Vérifier et appliquer la politique de conservation « 30 jours sauf nécessité documentée » aux journaux Nginx, archives, backups et correspondances, puis aligner la page Confidentialité FR/EN sur les pratiques vérifiées. Voir `docs/DONNEES-RETENTION-30J.md`. Vérifier les obligations d'information sur d'éventuels transferts sans publier la localisation technique exacte.
 - [ ] Valider les qualifications et les fiches d'activités publiées par la direction avant toute indexation.
 - [x] Examiner les previews desktop/mobiles et supprimer tous défauts de géométrie ou d'accessibilité bloquants. Captures et contrôles détaillés dans `docs/FINALISATION-2026-10-25.md`; l'approbation éditoriale de la direction reste requise.
 - [x] Réaliser un essai de déploiement sur environnement de préproduction, tester les anciennes URLs et préparer la release VPS sans l'activer.
@@ -33,3 +34,6 @@ Le démarrage envisagé des activités commerciales en mars 2027 est un projet d
 
 ## Garde-fou de compilation
 Par défaut, le build est non indexable. Pour une compilation de publication volontaire, `NEXT_PUBLIC_SITE_READY=true` exige `MONARQUE_RELEASE_APPROVED=YES`. Cette variable n'est pas une preuve de conformité : elle documente une approbation humaine uniquement après validation des cases ci-dessus. Les tests statiques détectent indépendamment le mode d'indexation et la présence des identifiants officiels sur les pages FR/EN.
+
+## Arbitrage de gouvernance du 25/10/2026
+Le Président confirme ses fonctions et celles de Manels Muvumbi Mundu conformément aux statuts notariés. Le GUCE aurait indiqué oralement que le libellé différent sur l'extrait RCCM ne constituait pas un problème. Cette divergence reste consignée à titre administratif non bloquant; aucun acte de rectification ni avis écrit n'est présumé. Les autres exigences réellement applicables à l'information et à la protection des données demeurent à vérifier indépendamment.
