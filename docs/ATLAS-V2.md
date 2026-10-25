@@ -40,3 +40,6 @@ La V2 **ne publie pas le prototype HTML** : elle retranscrit son langage dans le
 - Vérifications visuelles sur ordinateur et téléphone : accueil, Groupe, Domaines, Écosystème, initiative, Partenariats, Contact, légal; thème clair et sombre, français et anglais.
 - Validation éditoriale et design explicite de la direction.
 - Déploiement dans une nouvelle release immutable après sauvegarde; contrôle de l'ensemble des routes et rollback. Ne pas déplacer directement le lien de production lors de cette PR.
+
+## SEO et routes
+Le sitemap V2 inclut les douze URLs bilingues des six initiatives. Les métadonnées des nouvelles pages possèdent une canonical et deux traductions hreflang; l'indexation reste soumise au mécanisme existant de validation de production.

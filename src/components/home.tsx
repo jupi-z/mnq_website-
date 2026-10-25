@@ -14,7 +14,7 @@ export function Home({locale}:{locale:Locale}){
     <h1><span>{a.headlineOne}</span><em>{a.headlineTwo}</em></h1>
     <p className="atlas-lead">{h.lead}</p>
     <div className="atlas-actions"><Link className="atlas-button" href={localPath(locale,"groupe")}>{a.discover}<Arrow/></Link><Link className="atlas-text-link" href={localPath(locale,"activites")}>{a.explore}<Arrow/></Link></div>
-    <span className="atlas-hero-disclosure">{a.company}</span>
+    <span className="atlas-hero-disclosure">{t.launchStatus}</span>
    </div>
    <AtlasArt label={locale==="fr"?"Une identité en mouvement":"An identity in motion"}/>
   </section>

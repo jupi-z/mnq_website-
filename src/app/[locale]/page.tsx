@@ -10,7 +10,7 @@ export async function generateMetadata({params}:{params:Promise<{locale:string}>
   const {locale}=await params;
   if(!isLocale(locale)) return {};
   return {
-    title:locale==="fr"?"MonarQue Group S.A.S. | Entreprendre et développer":"MonarQue Group S.A.S. | Build and develop",
+    title:locale==="fr"?"MonarQue Group S.A.S. | Penser loin. Construire avec sens.":"MonarQue Group S.A.S. | Think further. Build with purpose.",
     description:content[locale].home.lead,
     openGraph:{type:"website",siteName:"MonarQue Group S.A.S.",title:locale==="fr"?"MonarQue Group S.A.S. | Groupe multisectoriel":"MonarQue Group S.A.S. | Multisector group",description:content[locale].home.lead,url:localPath(locale),locale:locale==="fr"?"fr_CD":"en_US"},
     twitter:{card:"summary",title:"MonarQue Group S.A.S.",description:content[locale].home.lead},
