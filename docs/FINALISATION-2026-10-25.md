@@ -2,18 +2,18 @@
 
 ## Décision
 
-**Publication publique : NON.** Le portail est corrigé, construit et validé en préproduction à partir du commit `8f234b77c3f5f1e7c0ede3ef8eadc6e39f20ee68`. Il n’a pas été déployé sur le domaine public. Les pages légales et la politique de confidentialité ne peuvent pas être déclarées conformes tant que les pièces et arbitrages précisés plus bas ne sont pas établis. La compilation publique et l’indexation restent désactivées.
+**Publication du portail : NON.** Le portail est corrigé, construit et validé en préproduction à partir du commit `8f234b77c3f5f1e7c0ede3ef8eadc6e39f20ee68`. Son build a été copié dans un répertoire de release de production, mais aucun pointeur `current` ne l’expose. Le domaine sert le certificat MonarQue valide, redirige HTTP vers HTTPS et répond 503 tant qu’aucune release n’est activée. `robots.txt` interdit l’exploration. Les pages légales et la politique de confidentialité ne peuvent pas être déclarées conformes tant que les pièces et arbitrages précisés plus bas ne sont pas établis. La compilation indexable reste désactivée.
 
-Le domaine pointe bien vers le VPS et un certificat Let’s Encrypt valide a été obtenu pour le domaine racine et `www`. Pour maintenir le renouvellement pendant que la décision de publication est en attente, seul un vhost HTTP ACME sans contenu est actif. Le domaine public ne sert donc pas le portail : HTTP renvoie 404 et HTTPS présente toujours le certificat d’un autre vhost. Cette situation a été constatée et n’est pas présentée comme une mise en ligne HTTPS réussie.
+Le domaine pointe vers le VPS. Le vhost dédié HTTPS est actif pour préparer l’infrastructure; la vérification publique confirme le certificat et les redirections. Le chemin ACME fonctionne sur les deux noms. Le contenu du portail n’est pas servi, ce qui a été vérifié par l’absence du pointeur `current`, la réponse HTTPS 503 et le `robots.txt` public en `Disallow: /`.
 
 ## Problèmes initiaux et corrections vérifiées
 
 | Problème constaté | Correction / état |
 | --- | --- |
 | Débordement horizontal mobile, mesuré à 361 px sur viewport 320 px | Corrigé dans `src/app/globals.css`; test Playwright de non-débordement ajouté pour les routes FR/EN. |
-| Aucun certificat TLS correspondant à `monarquegrp.com`; le certificat servi appartenait à `admin.kit-service-sarl.com` | Certificat SAN racine + `www` obtenu et renouvellement Certbot simulé avec succès. Le certificat n’est pas encore servi par le vhost public. |
-| Absence de vhost dédié et de racine de publication MonarQue | Vhost ACME dédié isolé installé; configuration finale préparée et testée en instance Nginx isolée, mais laissée désactivée. Aucun répertoire de publication de production n’est servi. |
-| Sauvegarde et retour arrière non démontrés | Sauvegarde Nginx dédiée réalisée; désactivation/réactivation du vhost ACME contrôlée par `nginx -t`, avec vérification des réponses avant/après. Détails ci-dessous. |
+| Aucun certificat TLS correspondant à `monarquegrp.com`; le certificat servi appartenait à `admin.kit-service-sarl.com` | Certificat SAN racine + `www` obtenu, contrôle de renouvellement simulé antérieur réussi et vérification HTTPS publique actuelle réussie. |
+| Absence de vhost dédié et de racine de publication MonarQue | Vhost TLS dédié actif; répertoire racine et release versionnée préparés. Le lien `current` est absent, donc aucun contenu du portail n’est servi. |
+| Sauvegarde et retour arrière non démontrés | Sauvegardes Nginx avant configuration ACME et avant activation TLS; retrait/rétablissement du vhost ACME testé. Les étapes de rollback du vhost TLS actif sont détaillées ci-dessous. |
 | Informations juridiques GUCE manquantes ou erronées dans les versions antérieures | Le dépôt contient les valeurs confirmées par la direction sur pièces GUCE : RCCM `CD/KWZ/RCCM/26-B-00523`, identification nationale `14-F4300-N00001Y`. Les scans restent hors du dépôt public. |
 | Adresse de contact incertaine | La direction confirme `contact@monarquegrp.com` active et hébergée par Hostinger Mail. Aucun email de test n’a été envoyé; ce fait est distingué d’un test technique de réception. |
 | Rôles et date d’exploitation contradictoires entre documents | La divergence est conservée et signalée; aucune fonction ni date n’a été arbitrairement modifiée. La formulation publique reste préopérationnelle et n’affirme pas que les activités commerciales ont démarré. |
@@ -51,7 +51,8 @@ Ces images montrent le rendu local du build candidat, pas des pages du domaine p
 - Source construite : SHA `8f234b77c3f5f1e7c0ede3ef8eadc6e39f20ee68`.
 - Archive de préproduction stockée sous `/var/www/monarquegrp-preprod/releases/8f234b77c3f5f1e7c0ede3ef8eadc6e39f20ee68`; SHA-256 `f5792a629040ceff941e2d44b295d9149c924fda25c538532c5734934eab40a4`; 132 fichiers, 1 822 425 octets.
 - Préproduction servie temporairement uniquement sur `127.0.0.1:4174`, sans ouverture de port public. 24 routes/actifs contrôlés en HTTP 200; `robots.txt` interdit l’exploration. Le serveur a été arrêté, le pointeur `current` retiré, le port vérifié fermé; l’archive reste disponible.
-- Le vhost final a été testé dans une instance Nginx isolée : `nginx -t` réussi; HTTP redirige vers HTTPS canonique; `www` redirige vers le domaine racine; HTTPS sert le build attendu avec en-têtes de sécurité; ancien chemin redirigé; ressource statique en cache immuable. L’instance isolée a été arrêtée. Cette validation ne constitue pas une activation sur Nginx actif.
+- Le même arbre (132 fichiers) a été copié sous `/var/www/monarquegrp.com/releases/8f234b77c3f5f1e7c0ede3ef8eadc6e39f20ee68`; `diff -qr` confirme l’identité avec la release préproduction. Ce répertoire n’est pas exposé car `/var/www/monarquegrp.com/current` n’existe pas.
+- Le vhost final a d’abord été testé dans une instance Nginx isolée, puis installé sur Nginx actif après sauvegarde et `nginx -t`. Les vérifications publiques confirment le TLS et les redirections; aucune page du portail n’est exposée.
 - HSTS est limité au domaine racine (`max-age=31536000`), sans `includeSubDomains`, car d’autres sous-domaines ont une gestion TLS séparée.
 
 ## DNS, TLS et état réel du VPS
@@ -59,10 +60,11 @@ Ces images montrent le rendu local du build candidat, pas des pages du domaine p
 - DNS observé : `monarquegrp.com A 187.77.175.51`; `www` CNAME vers le domaine racine; aucun AAAA observé; MX Hostinger (`mx1.hostinger.com`, `mx2.hostinger.com`).
 - VPS observé : Debian 13, Nginx actif, stockage disponible suffisant lors de l’audit; pare-feu actif sur SSH 22, HTTP/HTTPS 80/443 et WireGuard UDP 51820.
 - Services préexistants contrôlés après les rechargements : KIT Services, EnterpriseOS, PostgreSQL 17, Redis, Fail2Ban, Nginx et services HappiGuest. Les vhosts préexistants n’ont pas été édités. Contrôles HTTP après rechargement : `admin.kit-service-sarl.com`, `kit-service-sarl.com`, `happinesskolwezi.com` et `guest.happinesskolwezi.com/organizer/login` ont répondu 200.
-- Vhost Nginx actif pour MonarQue : `/etc/nginx/sites-enabled/monarquegrp-acme` → `/etc/nginx/sites-available/monarquegrp-acme`. Il ne sert que le chemin ACME et répond 404 aux autres chemins.
-- Vhost final `deploy/nginx-monarquegrp.conf` : candidat versionné, non activé. Aucune racine de production ni aucun contenu institutionnel n’est servi.
+- Vhost Nginx actif pour MonarQue : `/etc/nginx/sites-enabled/monarquegrp.com` → `/etc/nginx/sites-available/monarquegrp.com`. Il comporte le challenge ACME, les redirections canonique/HTTPS, les en-têtes de sécurité, les journaux dédiés et la racine de release.
+- `/var/www/monarquegrp.com/current` est intentionnellement absent. Les requêtes de contenu sur le domaine répondent 404 jusqu’à l’approbation et l’activation explicite d’une release.
 - Certificat réel : `/etc/letsencrypt/live/monarquegrp.com/`, SAN `monarquegrp.com` et `www.monarquegrp.com`, échéance 23 janvier 2027. Challenge ACME HTTP vérifié sur les deux noms; `certbot certonly --dry-run` et `certbot renew --dry-run --cert-name monarquegrp.com` réussis; timer Certbot actif.
-- Résultat public actuel : HTTP racine et `www` renvoient 404 depuis le vhost ACME; HTTPS échoue à la vérification du nom et sert le certificat `admin.kit-service-sarl.com` et son contenu. **HTTPS public MonarQue n’est pas opérationnel à ce stade.**
+- Résultat public après préparation : HTTP racine et `www` renvoient 308 vers `https://monarquegrp.com/`; HTTPS racine vérifie le certificat et répond 503 sans contenu du portail; `robots.txt` vérifié en HTTPS renvoie `User-agent: *` et `Disallow: /`; HTTPS `www` vérifie le certificat et renvoie 308 vers le domaine canonique. Le test a été effectué avec vérification TLS activée.
+- En-têtes vus sur le domaine : HSTS `max-age=31536000` sans `includeSubDomains`, `X-Content-Type-Options: nosniff`, `X-Frame-Options: DENY`, `Referrer-Policy: strict-origin-when-cross-origin`, Permissions-Policy désactivant caméra, micro et géolocalisation.
 - Avant chaque rechargement Nginx effectué pendant cette intervention, `nginx -t` a réussi.
 
 ## Sauvegarde et retour arrière
@@ -70,8 +72,11 @@ Ces images montrent le rendu local du build candidat, pas des pages du domaine p
 - Sauvegarde avant changement Nginx : `/var/backups/monarquegrp/nginx-baseline-20261025T1003Z.tar.gz`.
 - SHA-256 : `1fd030624e4cf52af4b91f24b845eb36bd1d86a7f88bc3d7680cc4caacd2f517`; archive protégée avec permissions restrictives, 13 entrées; clés privées exclues.
 - Répétition réelle de retrait du lien Nginx ACME : `nginx -t`, rechargement contrôlé, challenge auparavant en 200 devenu 404; réactivation du lien, nouveau `nginx -t` et rechargement, challenge revenu à la réponse attendue. Nginx est resté actif. Cette répétition valide le retour arrière de l’ajout ACME, pas le rollback d’une publication de contenu qui n’a pas eu lieu.
+- Sauvegarde immédiatement antérieure à l’activation TLS : `/var/backups/monarquegrp/nginx-before-tls-vhost-20261025T102423Z.tar.gz`, SHA-256 `23172aa778bb94d19a0831312c974f00fd6999b1c41385f6d5d1cd0dbf54c56e`, permissions `600`. Elle contient la configuration Nginx, les sites disponibles/activés et logrotate.
+- Copies de sécurité ciblées des deux mises à jour du vhost : `/var/backups/monarquegrp/monarquegrp.com.conf-before-empty-mode-20261025T1029Z` et `/var/backups/monarquegrp/monarquegrp.com.conf-before-robots-fallback-20261025T1031Z`, toutes deux en permissions `600`.
 - Préproduction : le pointeur `current` a été créé puis retiré et le serveur loopback arrêté; le répertoire versionné est conservé pour reprise.
 - La procédure prévue pour le futur déploiement est de publier dans un nouveau répertoire versionné, vérifier l’artefact, basculer atomiquement le lien `current`, valider toutes les routes et, en cas d’échec, repointer vers la version précédente puis exécuter `nginx -t` avant tout rechargement nécessaire. Cette bascule de production reste à exécuter après levée des conditions.
+- Rollback de la préparation TLS : retirer uniquement `/etc/nginx/sites-enabled/monarquegrp.com`, rétablir `/etc/nginx/sites-enabled/monarquegrp-acme` vers son fichier dédié, lancer `nginx -t` et recharger Nginx uniquement si le test réussit. Cela restaure le comportement ACME précédent, avec HTTP 404 hors challenge et sans portail; le certificat TLS MonarQue n’est alors plus présenté. Le retrait/rétablissement du lien ACME et le retour du challenge ont été réellement testés avant cette bascule. Pour une altération plus large, examiner l’archive de sauvegarde avant toute restauration complète.
 
 ## Conditions restantes — blocages précis
 
@@ -80,6 +85,8 @@ Ces images montrent le rendu local du build candidat, pas des pages du domaine p
 L’adresse IP est attribuée à un réseau Hostinger selon RDAP, ce qui ne permet pas d’établir l’entité contractuelle exacte, ses coordonnées légales ni la région du centre de données sélectionnée. Avant d’afficher le fournisseur dans les mentions légales et de valider les transferts, fournir depuis le compte privé la facture/commande ou le contrat VPS indiquant : l’entité contractante Hostinger, sa dénomination et adresse à publier, ainsi que le pays/la région d’hébergement effectivement sélectionné. Ces pièces ne doivent pas être ajoutées au dépôt public.
 
 La politique de rotation observée pour `/var/log/nginx` est quotidienne avec 14 rotations compressées (`/etc/logrotate.d/nginx`). Nginx journalise des données techniques de requête; avant de fixer une durée de conservation ou de publier la notice, l’avis juridique local doit déterminer si cette configuration et ces champs sont nécessaires/proportionnés et quelle règle de conservation appliquer. Ne pas extrapoler la politique de l’hébergeur à la messagerie.
+
+Les journaux dédiés MonarQue sont `/var/log/nginx/monarquegrp-access.log` et `monarquegrp-error.log`, permissions `640`, propriétaire `root:adm`; les anciens journaux du vhost ACME ont également été restreints. Le timer `certbot.timer` est actif et activé; la configuration de renouvellement utilise le webroot `/var/www/letsencrypt`, dont le challenge a été vérifié publiquement sur les deux noms.
 
 Hostinger Mail est confirmé comme fournisseur par la direction, mais la région de stockage/traitement, les paramètres de conservation de la boîte et la pratique de conservation/suppression des messages reçus n’ont pas été vérifiés. Il faut obtenir ces éléments dans les paramètres/conditions du compte, puis faire valider leur description et les droits des personnes par le conseil local. Le site ne contient pas de formulaire; les messages sont envoyés par le client mail de l’utilisateur puis reçus dans la boîte corporate.
 

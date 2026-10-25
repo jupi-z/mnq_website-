@@ -13,16 +13,16 @@
 ## Conditions indépendantes du code — à lever avant publication
 - [x] VPS déjà accessible à Codex, selon la direction (25/10/2026) — à tester côté serveur.
 - [x] Domaine `monarquegrp.com` déjà configuré vers ce VPS, selon la direction — vérifier la résolution effective.
-- [ ] Vérifier l'état du VPS, les services existants, les vhosts, le DNS effectif, TLS, renouvellement, pare-feu, sauvegarde et rollback.
+- [x] Vérifier l'état du VPS, les services existants, les vhosts, le DNS effectif, TLS, renouvellement, pare-feu, sauvegarde et rollback. Vhost HTTPS dédié préparé; le portail reste absent de la racine active tant que les validations documentaires ne sont pas levées.
 - [x] La direction confirme que `contact@monarquegrp.com` fonctionne et est hébergée par Hostinger Mail.
 - [ ] Documenter un test technique de réception à l'issue de la mise en ligne.
 - [x] RCCM et Identification nationale renseignés à partir des deux certificats GUCE officiels (sans publier les scans).
 - [ ] Compléter l'identité du prestataire VPS et ses coordonnées, puis valider les mentions applicables localement et la concordance des fonctions direction/RCCM.
 - [ ] Valider la politique de confidentialité à partir des journaux et de la conservation réellement pratiquée par l'hébergeur et la messagerie.
 - [ ] Valider les qualifications et les fiches d'activités publiées par la direction avant toute indexation.
-- [ ] Examiner les previews desktop/mobiles et supprimer tous défauts de géométrie ou d'accessibilité bloquants.
-- [ ] Réaliser un essai de déploiement sur environnement de préproduction et tester les anciennes URLs.
-- [ ] Faire exécuter l'audit indépendant Codex, les corrections prioritaires et l'essai de déploiement selon `docs/CODEX-HANDOFF-PRODUCTION.md`.
+- [x] Examiner les previews desktop/mobiles et supprimer tous défauts de géométrie ou d'accessibilité bloquants. Captures et contrôles détaillés dans `docs/FINALISATION-2026-10-25.md`; l'approbation éditoriale de la direction reste requise.
+- [x] Réaliser un essai de déploiement sur environnement de préproduction, tester les anciennes URLs et préparer la release VPS sans l'activer.
+- [x] Faire exécuter l'audit indépendant Codex, les corrections prioritaires et l'essai de déploiement selon `docs/CODEX-HANDOFF-PRODUCTION.md`; voir le rapport de finalisation pour les éléments encore bloquants.
 - [ ] Exécuter un build avec `NEXT_PUBLIC_SITE_READY=true` uniquement après levée des conditions légales, éditoriales et techniques et décision d'indexation publique; vérifier robots, sitemap et canonical.
 
 ## Définition du terme « finalisé »
