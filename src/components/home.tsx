@@ -10,6 +10,7 @@ export function Home({locale}:{locale:Locale}) {
         <div className="hero-art" aria-hidden="true"><span className="arc arc-one"/><span className="arc arc-two"/><span className="arc arc-three"/><span className="art-line"/></div>
         <div className="shell hero-content">
           <div className="eyebrow hero-label"><span className="signal"/> {h.eyebrow}</div>
+          <p className="launch-status">{t.launchStatus}</p>
           <h1>{h.title}</h1>
           <p className="hero-lead">{h.lead}</p>
           <div className="actions">
@@ -22,7 +23,7 @@ export function Home({locale}:{locale:Locale}) {
       <section className="section-block statement-section">
         <div className="shell split-layout">
           <span className="eyebrow section-eyebrow">{h.introLabel}</span>
-          <div><h2 className="display-title">{h.introTitle}</h2><p className="section-description">{h.introBody}</p></div>
+          <div><h2 className="display-title">{h.introTitle}</h2><p className="section-description">{h.introBody}</p><p className="launch-disclosure">{t.launchNotice}</p></div>
         </div>
       </section>
       <section className="section-block section-subtle">

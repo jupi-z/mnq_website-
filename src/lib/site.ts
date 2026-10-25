@@ -9,6 +9,7 @@ export type Slug = (typeof slugs)[number];
 
 export const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL || "https://monarquegrp.com").replace(/\/$/, "");
 export const SITE_READY = process.env.NEXT_PUBLIC_SITE_READY === "true";
+export const COMPANY_OPERATIONAL = process.env.NEXT_PUBLIC_COMPANY_OPERATIONAL === "true";
 
 export function isLocale(value: string): value is Locale {
   return value === "fr" || value === "en";
@@ -35,6 +36,8 @@ export type PageCopy = {
 export type LocaleContent = {
   language: string;
   tagline: string;
+  launchNotice: string;
+  launchStatus: string;
   nav: { slug: Slug; label: string }[];
   home: {
     eyebrow: string; title: string; lead: string;
@@ -63,6 +66,8 @@ export const content: Record<Locale, LocaleContent> = {
   fr: {
     language: "Français",
     tagline: "Entreprendre, concevoir et développer.",
+    launchNotice: "Les activités commerciales de MonarQue Group sont en préparation. Leur démarrage est envisagé pour mars 2027, sous réserve de confirmation.",
+    launchStatus: "Entreprise constituée · Activités en préparation",
     nav: [
       {slug:"groupe",label:"Le Groupe"},
       {slug:"activites",label:"Activités"},
@@ -73,7 +78,7 @@ export const content: Record<Locale, LocaleContent> = {
     home: {
       eyebrow:"GROUPE ENTREPRENEURIAL • KOLWEZI, RDC",
       title:"Faire émerger des activités qui créent une valeur réelle.",
-      lead:"MonarQue Group développe des initiatives économiques, des solutions technologiques et des collaborations pour répondre aux besoins des marchés.",
+      lead:"MonarQue Group structure des initiatives économiques et technologiques, en préparation de son lancement commercial.",
       explore:"Découvrir le Groupe", partnership:"Construire un partenariat",
       introLabel:"01 / NOTRE IDENTITÉ",
       introTitle:"Une vision entrepreneuriale. Plusieurs domaines d'action.",
@@ -89,7 +94,7 @@ export const content: Record<Locale, LocaleContent> = {
       closingBody:"Échangeons autour d'une collaboration adaptée à votre contexte.",
       areas:[
         {title:"Numérique & technologie",body:"Conception de produits logiciels, solutions métiers, plateformes et automatisation."},
-        {title:"Commerce & services",body:"Développement d'activités commerciales et de services aux organisations."},
+        {title:"Commerce & services",body:"Préparation d'activités commerciales et de services aux organisations."},
         {title:"Industrie & agro-industrie",body:"Exploration et structuration progressive de capacités productives."},
         {title:"Énergie & infrastructures",body:"Étude d'opportunités de projets nécessitant des partenariats spécialisés."}
       ],
@@ -114,7 +119,7 @@ export const content: Record<Locale, LocaleContent> = {
         eyebrow:"CHAMPS D'ACTION",title:"Nos activités",
         intro:"MonarQue Group structure son développement autour de plusieurs domaines. Le périmètre statutaire ne signifie pas que chaque activité est déjà exploitée.",
         sections:[
-          {tag:"ACTIVITÉ",title:"Zingatia — stratégie et création numérique",body:"Une activité d'agence autour de la présence numérique, de la communication, de la création de sites et des solutions destinées aux organisations."},
+          {tag:"ACTIVITÉ",title:"Zingatia — stratégie et création numérique",body:"Une activité d'agence numérique en préparation, destinée à la communication, à la présence en ligne et aux solutions pour les organisations."},
           {tag:"PÔLE INTERNE",title:"LTEX — technologie et solutions métiers",body:"Le pôle technologique interne du Groupe, dédié à la conception, à l'intégration et au développement de solutions numériques. LTEX n'est pas présenté comme une société juridiquement indépendante."},
           {tag:"ORIENTATION",title:"Commerce et distribution",body:"Développement d'opportunités de commerce, d'approvisionnement et de services associés selon les besoins et les accords concrétisés."},
           {tag:"EN ÉTUDE",title:"Industrie et agro-industrie",body:"Initiatives de diversification portant notamment sur des activités de transformation et de production, à des stades de structuration variables."},
@@ -206,6 +211,8 @@ export const content: Record<Locale, LocaleContent> = {
   en: {
     language:"English",
     tagline:"Build, design and develop.",
+    launchNotice:"MonarQue Group is preparing its commercial activities. The planned start is March 2027, subject to confirmation.",
+    launchStatus:"Incorporated company · Operations in preparation",
     nav:[
       {slug:"groupe",label:"The Group"},{slug:"activites",label:"Activities"},
       {slug:"ecosysteme",label:"Ecosystem"},{slug:"partenariats",label:"Partnerships"},
@@ -214,7 +221,7 @@ export const content: Record<Locale, LocaleContent> = {
     home:{
       eyebrow:"ENTREPRENEURIAL GROUP • KOLWEZI, DRC",
       title:"Building initiatives that create real value.",
-      lead:"MonarQue Group develops business initiatives, technology solutions and partnerships to address market needs.",
+      lead:"MonarQue Group is preparing business and technology initiatives ahead of its commercial launch.",
       explore:"Discover the Group",partnership:"Explore a partnership",
       introLabel:"01 / OUR IDENTITY",introTitle:"One entrepreneurial vision. Several fields of action.",
       introBody:"Based in Kolwezi, MonarQue Group S.A.S. is a multisector company. Technology is one of its core capabilities alongside business activities and prospective industrial ventures.",
@@ -226,7 +233,7 @@ export const content: Record<Locale, LocaleContent> = {
       closingBody:"Talk to us about a collaboration suited to your context.",
       areas:[
         {title:"Digital & technology",body:"Business software, digital platforms, products and automation."},
-        {title:"Trade & services",body:"Business development, commercial activities and organizational services."},
+        {title:"Trade & services",body:"Preparation of commercial activities and services to organizations."},
         {title:"Industry & agribusiness",body:"Exploration and gradual structuring of productive capabilities."},
         {title:"Energy & infrastructure",body:"Assessment of potential projects requiring specialist partnerships."}
       ],
@@ -244,7 +251,7 @@ export const content: Record<Locale, LocaleContent> = {
         {tag:"LOCATION",title:"Kolwezi, Lualaba",body:"The registered office is in Kolwezi, Lualaba Province, Democratic Republic of the Congo."}
       ]},
       activites:{eyebrow:"FIELDS OF ACTIVITY",title:"Our activities",intro:"MonarQue Group is developing several fields of activity. The corporate purpose does not imply that every field is already operational.",sections:[
-        {tag:"ACTIVITY",title:"Zingatia — digital strategy and creation",body:"An agency activity focusing on online presence, communication, websites and digital solutions for organizations."},
+        {tag:"ACTIVITY",title:"Zingatia — digital strategy and creation",body:"A digital agency activity in preparation, intended to address communication, websites and digital solutions for organizations."},
         {tag:"INTERNAL UNIT",title:"LTEX — technology and business solutions",body:"The Group's internal technology unit. LTEX is not presented as a separately incorporated company."},
         {tag:"DIRECTION",title:"Trade and distribution",body:"Developing sourcing, trade and associated services in line with actual market opportunities and agreements."},
         {tag:"UNDER REVIEW",title:"Industry and agribusiness",body:"Diversification initiatives around processing and production at varying stages of planning."},

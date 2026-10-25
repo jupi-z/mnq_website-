@@ -181,3 +181,7 @@ p {color:var(--muted)}
   html {scroll-behavior:auto}
   *,*::before,*::after {animation-duration:.01ms!important;transition-duration:.01ms!important}
 }
+
+.launch-status {display:inline-block;margin:0 0 16px;padding:6px 12px;border:1px solid var(--line);background:var(--paper);color:var(--muted);font-size:12px;font-weight:700;letter-spacing:.02em}
+.launch-disclosure {font-size:14px;line-height:1.65;margin-top:28px;padding:16px 20px;border-left:2px solid var(--accent);background:var(--subtle)}
+.desktop-nav a[aria-current="page"],.mobile-nav a[aria-current="page"] {color:var(--accent)}

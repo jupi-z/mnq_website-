@@ -26,3 +26,5 @@
 - documenter la provenance et la licence de tout média;
 - apporter les vrais fichiers des logos au dépôt sans en changer le dessin;
 - assurer la protection des données et la suppression/retention des messages éventuels.
+
+| Démarrage des activités du Groupe | Déclaration de la direction : activités pas encore démarrées, objectif mars 2027 | Afficher « en préparation », sans certifier la date future |
