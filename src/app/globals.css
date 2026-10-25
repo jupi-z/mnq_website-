@@ -157,10 +157,12 @@ p {color:var(--muted)}
   .interior-hero {padding:76px 0}
   .interior-hero h1 {margin-top:25px}
   .interior-hero p {font-size:18px}
-  .detail-row {grid-template-columns:1fr 40px;gap:12px;padding:38px 0}
+  .detail-row {grid-template-columns:minmax(0,1fr) 40px;gap:12px;padding:38px 0}
+  .detail-row > * {min-width:0}
   .detail-tag {grid-column:1/-1;margin-bottom:14px}
   .detail-index {grid-column:2;grid-row:2}
   .detail-body {grid-column:1;grid-row:2}
+  .detail-body h2 {overflow-wrap:anywhere}
   .footer-main {grid-template-columns:1fr 1fr;gap:38px;padding:66px 0}
   .footer-statement {grid-column:1/-1}
   .footer-bottom {flex-direction:column}
@@ -170,6 +172,8 @@ p {color:var(--muted)}
   .hero h1 {font-size:43px}
   .hero-lead {font-size:17px}
   .hero-bottom {font-size:9px}
+  .display-title {font-size:clamp(30px,10vw,38px)}
+  .interior-hero h1 {font-size:clamp(40px,13vw,55px)}
   .area {grid-template-columns:28px 1fr 20px;gap:8px}
   .area h3 {font-size:21px}
   .area p {font-size:14px}

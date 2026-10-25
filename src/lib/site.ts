@@ -182,9 +182,9 @@ export const content: Record<Locale, LocaleContent> = {
           {tag:"DIRECTION",title:"Représentation",body:"Président : Ameno Kizele Mwine. Directeur Général : Manels Muvumbi Mundu."},
           {tag:"CONTACT",title:"Correspondance",body:"contact@monarquegrp.com — messagerie professionnelle Hostinger Mail"},
           {tag:"IMMATRICULATION",title:"RCCM et identification nationale",body:"RCCM : CD/KWZ/RCCM/26-B-00523. Identification nationale : 14-F4300-N00001Y. Références vérifiées sur les extraits officiels délivrés le 3 juillet 2026."},
-          {tag:"HÉBERGEMENT",title:"Informations d'hébergement",body:"Le site est destiné à être hébergé sur un serveur privé virtuel. L'identité juridique et les coordonnées du prestataire d'hébergement seront renseignées après vérification des informations contractuelles de l'hébergeur."}
+          {tag:"HÉBERGEMENT",title:"Hébergement",body:"Le site est hébergé sur une infrastructure VPS fournie par Hostinger International Limited, 61 Lordou Vironos Street, 6023 Larnaca, Chypre, sous réserve de toute entité différente expressément désignée dans le contrat de service applicable. La localisation technique précise de l'infrastructure n'est pas publiée."}
         ],
-        closing:"Cette page est une version de préparation qui doit être revue avant mise en production."
+        closing:"Les activités commerciales du Groupe sont en préparation. Les informations de cette page sont publiées sous la responsabilité de MonarQue Group S.A.S. et peuvent être actualisées par le Groupe."
       },
       confidentialite:{
         eyebrow:"PROTECTION DES DONNÉES",title:"Confidentialité",
@@ -193,10 +193,12 @@ export const content: Record<Locale, LocaleContent> = {
           {tag:"RESPONSABLE",title:"Responsable du traitement",body:"MonarQue Group S.A.S., N° 900 Avenue Bunkeya, Quartier Mutoshi, Commune de Manika, Kolwezi, RDC. Contact : contact@monarquegrp.com."},
           {tag:"NAVIGATION",title:"Navigation et préférences",body:"Aucun compte visiteur, aucune publicité ciblée et aucun formulaire de collecte ne sont prévus. Le choix du thème clair ou sombre est conservé localement dans votre navigateur, sans compte."},
           {tag:"CORRESPONDANCE",title:"Contact par courriel",body:"Si vous écrivez à contact@monarquegrp.com, le Groupe traite les coordonnées et le contenu de votre message afin de répondre à votre demande. La messagerie professionnelle est fournie par Hostinger Mail."},
-          {tag:"DROITS",title:"Questions et demandes relatives aux données",body:"Vous pouvez adresser une question ou une demande concernant les données communiquées au Groupe à contact@monarquegrp.com. Le traitement de ces demandes doit être conforme aux textes applicables."},
-          {tag:"HÉBERGEMENT",title:"Journaux techniques et conservation",body:"Le serveur peut enregistrer des informations techniques de connexion nécessaires à la sécurité du site. Le contenu réel des journaux, leur durée de conservation et l'identité du prestataire VPS doivent être validés à partir de la configuration de production avant publication."}
+          {tag:"DROITS",title:"Vos droits",body:"Pour demander l'accès, la rectification ou la suppression de données, ou poser une question sur leur traitement, écrivez à contact@monarquegrp.com. Le Groupe examine chaque demande au regard des droits et exceptions prévus par la loi applicable."},
+          {tag:"CONSERVATION",title:"Durées de conservation",body:"Les journaux d'accès et d'erreurs du site sont soumis à une rotation quotidienne avec suppression au plus tard après 30 jours. Les journaux techniques système sont limités par le serveur à 7 jours. Les courriels indésirables et la corbeille Hostinger Mail sont supprimés automatiquement après 30 jours; les journaux de livraison Hostinger sont disponibles 30 jours. La boîte de réception et les messages envoyés ne font pas l'objet d'une purge automatique vérifiée : ils sont examinés manuellement chaque semaine, et les messages devenus inutiles sont supprimés dans les 30 jours. Un dossier actif ou une obligation légale peut justifier une conservation limitée au-delà de ce délai, avec motif, responsable, date de réexamen et règle de suppression consignés dans un registre privé."},
+          {tag:"HÉBERGEMENT",title:"Données de navigation",body:"Le serveur Nginx traite des données techniques nécessaires à la diffusion et à la sécurité du site, notamment l'adresse IP, l'heure, la ressource demandée, le navigateur et, lorsqu'il est transmis, le référent. Le site n'utilise ni compte visiteur, ni formulaire, ni publicité ciblée, ni outil d'analyse d'audience. Le choix du thème est conservé localement dans le navigateur."},
+          {tag:"PRESTATAIRES",title:"Prestataires et transferts",body:"L'hébergement VPS est fourni par Hostinger International Limited et la messagerie par Hostinger Mail. Ces prestataires peuvent traiter des données hors de la République démocratique du Congo. Les transferts applicables sont soumis aux garanties et formalités prévues par le droit en vigueur. La localisation précise des centres de données n'est pas publiée."}
         ],
-        closing:"La présente page est provisoire et devra correspondre aux traitements de données réellement mis en production."
+        closing:"Les demandes relatives aux données peuvent être adressées à contact@monarquegrp.com."
       }
     },
     footer:{
@@ -288,15 +290,17 @@ export const content: Record<Locale, LocaleContent> = {
         {tag:"LEADERSHIP",title:"Corporate officers",body:"President: Ameno Kizele Mwine. Managing Director: Manels Muvumbi Mundu."},
         {tag:"CONTACT",title:"Correspondence",body:"contact@monarquegrp.com — professional email service provided by Hostinger Mail"},
         {tag:"REGISTRATION",title:"Company registration",body:"RCCM: CD/KWZ/RCCM/26-B-00523. National identification: 14-F4300-N00001Y. These identifiers were checked against official registration extracts issued on 3 July 2026."},
-        {tag:"HOSTING",title:"Hosting information",body:"The site is intended to be hosted on a virtual private server. The hosting provider's verified legal identity and contact details will be added after checking the actual hosting agreement."}
-      ],closing:"This is a preparation draft and requires review before publication."},
+        {tag:"HOSTING",title:"Hosting",body:"The website is hosted on a virtual private server provided by Hostinger International Limited, 61 Lordou Vironos Street, 6023 Larnaca, Cyprus, subject to any different entity expressly identified in the applicable service agreement. The precise technical location of the infrastructure is not published."}
+      ],closing:"The Group's commercial activities are in preparation. MonarQue Group S.A.S. is responsible for and may update the information on this page."},
       confidentialite:{eyebrow:"DATA PROTECTION",title:"Privacy",intro:"The initial corporate website is designed to minimize personal data collection.",sections:[
         {tag:"CONTROLLER",title:"Data controller",body:"MonarQue Group S.A.S., No. 900 Avenue Bunkeya, Mutoshi, Manika, Kolwezi, DRC. Contact: contact@monarquegrp.com."},
         {tag:"BROWSING",title:"Browsing and preferences",body:"No visitor accounts, targeted advertising, or data collection form are provided. The light/dark preference is stored locally in your browser without an account."},
         {tag:"EMAIL",title:"Email contact",body:"When you contact contact@monarquegrp.com, the Group processes your contact details and message to answer your inquiry. Professional email is provided by Hostinger Mail."},
-        {tag:"RIGHTS",title:"Questions and data requests",body:"For questions or requests concerning data you shared with the Group, contact contact@monarquegrp.com. The handling of such requests must follow applicable law."},
-        {tag:"HOSTING",title:"Technical logs and retention",body:"The server may record connection data necessary to protect the website. Actual log content, retention periods and the VPS provider's identity must be checked against production settings before publication."}
-      ],closing:"This provisional page must match the actual personal data processing in production."}
+        {tag:"RIGHTS",title:"Your rights",body:"To request access to, correction or deletion of personal data, or to ask a question about its processing, email contact@monarquegrp.com. The Group will assess each request under the rights and exceptions provided by applicable law."},
+        {tag:"RETENTION",title:"How long information is kept",body:"Website access and error logs are rotated daily and purged after no more than 30 days. System technical logs are limited to 7 days by the server. Hostinger Mail automatically deletes Spam and Trash after 30 days; delivery logs are available for 30 days. No automatic purge has been verified for Inbox or Sent: the mailbox custodian appointed by management reviews them weekly and deletes messages no longer needed within 30 days. An active matter or legal obligation may justify limited retention beyond that period, with the reason, owner, review date and deletion rule recorded in a private register."},
+        {tag:"HOSTING",title:"Browsing data",body:"The Nginx server processes technical data needed to deliver and secure the website, including IP address, time, requested resource, browser and, when sent, referrer. The website has no visitor accounts, contact form, targeted advertising or audience analytics. The theme preference is stored locally in the browser."},
+        {tag:"PROVIDERS",title:"Providers and transfers",body:"VPS hosting is provided by Hostinger International Limited and email by Hostinger Mail. These providers may process data outside the Democratic Republic of the Congo. Applicable transfers are subject to the safeguards and formalities required by current law. The precise location of data centres is not published."}
+      ],closing:"For data-related requests, contact contact@monarquegrp.com."}
     },
     footer:{
       intro:"Multisector entrepreneurial group based in Kolwezi, Democratic Republic of the Congo.",
