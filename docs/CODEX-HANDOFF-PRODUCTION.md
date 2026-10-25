@@ -32,3 +32,8 @@ Après levée des conditions, déployer de façon réversible sur le VPS et test
 
 ## Livrable à retourner
 Un rapport comprenant : SHA déployé, tests exécutés, problèmes et correctifs, configuration VPS pertinente (sans secrets), résultat DNS/TLS, capture des pages, URL effectivement accessible, décision d'indexation, procédure de rollback et réserves non levées. Ne pas annoncer « publié » sans validation HTTP(S) publique.
+
+## Addendum de clôture — identité légale et email, 25 octobre 2026
+Les scans officiels des deux certificats GUCE (bibliothèque privée, **ne pas les committer**) ont permis de confirmer le RCCM `CD/KWZ/RCCM/26-B-00523` et l'identification nationale `14-F4300-N00001Y`. Le code publie désormais ces seules références dans les mentions légales FR/EN. Attention : certaines factures plus anciennes écrivaient à tort `14-14300-N00001Y` ; ne pas reprendre cette valeur. Le président confirme que la boîte `contact@monarquegrp.com` est fonctionnelle et fournie par Hostinger Mail. Codex doit enregistrer un test technique si souhaité, et non maintenir ce point en blocage indéfini. Voir `docs/REGISTRE-PUBLICATION.md` pour les incohérences documentaires de fonctions/dates, à traiter avec prudence.
+
+Vérifier la configuration effective de Nginx, obtenir un certificat pour `monarquegrp.com` et `www` et activer les redirections sans modifier les vhosts des autres projets. Avant une compilation indexable, satisfaire la protection explicite de `scripts/release-gate.mjs`. Aucune liaison avec Monarque Connect n'est une dépendance à la publication de ce portail statique.

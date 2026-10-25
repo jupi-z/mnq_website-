@@ -50,3 +50,6 @@ Les statuts officiels encadrent le périmètre juridique et la direction du Grou
 
 ## Licence
 Tous droits réservés sur les logos et contenus de MonarQue Group. Aucune licence open source de redistribution n'est accordée implicitement par la visibilité publique de ce dépôt.
+
+## Gestion des contenus et futur back-office
+La V1 est un portail statique géré par revue Git; aucun serveur d'administration ni compte CMS public n'est nécessaire pour publier le site. Le modèle et la procédure de mise à jour figurent dans `docs/BACKOFFICE-DECISION.md` et `docs/PROCEDURE-PUBLICATION.md`. Une console éditoriale indépendante pourra être ajoutée plus tard, sans attendre Monarque Connect. Les processus commerciaux pourront intégrer Monarque Connect par API lorsqu'il sera prêt, sans partager les secrets ou la base du CMS.
