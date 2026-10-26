@@ -2,6 +2,32 @@ import {test,expect} from "@playwright/test";
 
 const ids=["zingatia","ltex","monarque-connect","thyslo","zamurek","aura"];
 
+test("initiative hero uses the full desktop shell width",async({page})=>{
+  await page.setViewportSize({width:1440,height:1000});
+  await page.goto("/fr/initiative/zingatia/");
+  const shellWidth=await page.locator(".atlas-deep-hero-grid").evaluate(element=>element.getBoundingClientRect().width);
+  expect(shellWidth).toBeGreaterThan(1440*.8);
+});
+
+test("initiative heroes show a concise introduction without manuscript markup",async({page})=>{
+  for(const locale of ["fr","en"])for(const id of ids){
+    const route=`/${locale}/initiative/${id}/`;
+    await page.goto(route);
+    const intro=await page.locator(".atlas-deep-intro").innerText();
+    expect(intro,route).not.toMatch(/\*\*|###/);
+    expect(intro.length,route).toBeLessThan(500);
+  }
+});
+
+test("all initiative hero status labels are populated in both languages",async({page})=>{
+  for(const locale of ["fr","en"])for(const id of ids){
+    const route=`/${locale}/initiative/${id}/`;
+    await page.goto(route);
+    const status=(await page.locator(".atlas-deep-status").innerText()).trim();
+    expect(status.length,route).toBeGreaterThan(2);
+  }
+});
+
 test("all six Atlas narratives render in both languages with complete sections and FAQs",async({page})=>{
   const errors:string[]=[];
   page.on("pageerror",e=>errors.push(e.message));
@@ -21,12 +47,15 @@ test("all six Atlas narratives render in both languages with complete sections a
 });
 
 test("initiative language switch preserves the exact project route",async({page})=>{
-  await page.goto("/fr/initiative/thyslo/");
-  await page.locator(".locale-switch").click();
-  await expect(page).toHaveURL(/\/en\/initiative\/thyslo\/?$/);
-  await expect(page.getByRole("heading",{level:2,name:/Frequently asked questions/})).toBeVisible();
-  await page.locator(".locale-switch").click();
-  await expect(page).toHaveURL(/\/fr\/initiative\/thyslo\/?$/);
+  for(const locale of ["fr","en"])for(const id of ids){
+    const route=`/${locale}/initiative/${id}/`;
+    const other=locale==="fr"?"en":"fr";
+    await page.goto(route);
+    await page.locator(".locale-switch").click();
+    await expect(page).toHaveURL(new RegExp(`/${other}/initiative/${id}/?$`));
+    await page.locator(".locale-switch").click();
+    await expect(page).toHaveURL(new RegExp(`/${locale}/initiative/${id}/?$`));
+  }
 });
 
 test("all initiative pages fit a narrow mobile viewport",async({page})=>{
