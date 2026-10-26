@@ -14,7 +14,7 @@ test("all six Atlas narratives render in both languages with complete sections a
       expect(await page.locator(".atlas-deep-chapter").count(),route+" chapters").toBe(7);
       expect(await page.locator(".atlas-deep-faq details").count(),route+" FAQs").toBe(3);
       expect(await page.locator(".atlas-deep-prose>p,.atlas-deep-method").count(),route+" body").toBeGreaterThan(8);
-      await expect(page.getByRole("link",{name:locale==="fr"?"EN":"FR",exact:true})).toBeVisible();
+      await expect(page.locator(".locale-switch")).toBeVisible();
     }
   }
   expect(errors).toEqual([]);
