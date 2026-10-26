@@ -60,3 +60,21 @@ test("Atlas fonts are applied to display, body and italic titles",async({page})=
   expect(fonts.display.toLowerCase()).toContain("manrope");
   expect(fonts.italic.toLowerCase()).toContain("instrument");
 });
+
+test("Atlas abstract motifs animate and respect reduced motion",async({page})=>{
+  await page.goto("/fr/groupe/");
+  const about=page.locator(".atlas-about-art i");
+  await expect(about).toHaveCount(4);
+  const aboutAnimations=await about.evaluateAll(elements=>elements.map(el=>getComputedStyle(el).animationName));
+  expect(aboutAnimations.every(name=>name==="atlasAboutDrift")).toBe(true);
+
+  await page.goto("/fr/activites/");
+  const symbol=page.locator(".atlas-geometric-symbol span");
+  await expect(symbol).toHaveCount(4);
+  const symbolAnimations=await symbol.evaluateAll(elements=>elements.map(el=>getComputedStyle(el).animationName));
+  expect(symbolAnimations.every(name=>name==="atlasSymbolTurn")).toBe(true);
+
+  await page.emulateMedia({reducedMotion:"reduce"});
+  const reducedAnimations=await symbol.evaluateAll(elements=>elements.map(el=>getComputedStyle(el).animationName));
+  expect(reducedAnimations.every(name=>name==="none")).toBe(true);
+});

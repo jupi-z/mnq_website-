@@ -164,10 +164,11 @@ a:hover .atlas-link-arrow,a:hover .atlas-arrow,.atlas-domain-tabs button:hover b
 .atlas-domain-art-3{background:#dcd2c5}
 .atlas-domain-art small{position:absolute;bottom:20px;left:22px;color:#4c614f;letter-spacing:.11em;font-size:9px}
 .atlas-geometric-symbol{width:190px;height:190px;position:relative;transform:rotate(-24deg)}
-.atlas-geometric-symbol span{position:absolute;inset:0;border:26px solid #2c4c3a;border-radius:45% 5% 45% 5%;transform:rotate(0)}
-.atlas-geometric-symbol span:nth-child(2){border-color:#e65b2e;transform:rotate(45deg)}
-.atlas-geometric-symbol span:nth-child(3){border-color:#a4b494;transform:rotate(90deg)}
-.atlas-geometric-symbol span:nth-child(4){border-color:#cdbf9d;transform:rotate(135deg)}
+.atlas-geometric-symbol span{--symbol-angle:0deg;position:absolute;inset:0;border:26px solid #2c4c3a;border-radius:45% 5% 45% 5%;transform:rotate(var(--symbol-angle));animation:atlasSymbolTurn 36s linear infinite}
+.atlas-geometric-symbol span:nth-child(2){--symbol-angle:45deg;border-color:#e65b2e;animation-duration:42s;animation-direction:reverse}
+.atlas-geometric-symbol span:nth-child(3){--symbol-angle:90deg;border-color:#a4b494;animation-duration:48s}
+.atlas-geometric-symbol span:nth-child(4){--symbol-angle:135deg;border-color:#cdbf9d;animation-duration:39s;animation-direction:reverse}
+@keyframes atlasSymbolTurn{to{transform:rotate(calc(var(--symbol-angle) + 360deg))}}
 .atlas-domain-detail h2{font-size:clamp(32px,4vw,55px);margin:18px 0}
 .atlas-domain-detail>p{font-size:14px;line-height:1.95;color:var(--muted);max-width:680px}
 .atlas-domain-detail .atlas-disclosure{margin-top:27px}
@@ -189,10 +190,11 @@ a:hover .atlas-link-arrow,a:hover .atlas-arrow,.atlas-domain-tabs button:hover b
 .atlas-about-feature h2{font-size:clamp(38px,4.6vw,70px);margin-top:28px}
 .atlas-about-feature h2 em{color:var(--accent)}
 .atlas-about-art{height:340px;background:#e0e7d9;position:relative;overflow:hidden;display:grid;place-items:center}
-.atlas-about-art i{position:absolute;width:230px;height:125px;background:#537961;border-radius:50%;transform:rotate(-36deg) translate(-20px,0);opacity:.8}
-.atlas-about-art i:nth-child(2){transform:rotate(36deg) translate(20px,0);background:#e65b2e}
-.atlas-about-art i:nth-child(3){transform:rotate(110deg) translate(-10px,0);background:#d4c8a7}
-.atlas-about-art i:nth-child(4){transform:rotate(-110deg) translate(10px,0);background:#8aa989}
+.atlas-about-art i{--base-transform:rotate(-36deg) translate(-20px,0);position:absolute;width:230px;height:125px;background:#537961;border-radius:50%;transform:var(--base-transform);opacity:.8;animation:atlasAboutDrift 18s ease-in-out infinite}
+.atlas-about-art i:nth-child(2){--base-transform:rotate(36deg) translate(20px,0);background:#e65b2e;animation-delay:-5s;animation-duration:21s}
+.atlas-about-art i:nth-child(3){--base-transform:rotate(110deg) translate(-10px,0);background:#d4c8a7;animation-delay:-9s;animation-duration:24s}
+.atlas-about-art i:nth-child(4){--base-transform:rotate(-110deg) translate(10px,0);background:#8aa989;animation-delay:-13s;animation-duration:20s}
+@keyframes atlasAboutDrift{0%,100%{transform:var(--base-transform) translateY(0) scale(1)}50%{transform:var(--base-transform) translateY(-12px) scale(1.035)}}
 .atlas-partnership-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 70px}
 .atlas-partner{border-top:1px solid var(--line);padding:35px 0;min-height:270px;position:relative}
 .atlas-partner h2{font-size:clamp(28px,3.1vw,45px);margin:32px 0 15px}
