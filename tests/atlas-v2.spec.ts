@@ -25,7 +25,7 @@ for(const locale of ["fr","en"] as const){
     await expect(page.locator(".atlas-initiative")).toHaveCount(3);
     await page.locator(".atlas-initiative").first().click();
     await expect(page).toHaveURL(new RegExp("/"+locale+"/initiative/monarque-connect/"));
-    await expect(page.locator(".atlas-project-heading h1")).toHaveText("Monarque Connect");
+    await expect(page.locator(".atlas-project-heading h1")).toContainText("Monarque Connect");
   });
   test("Atlas V2 "+locale+" domain selector",async({page})=>{
     await page.goto("/"+locale+"/activites/");

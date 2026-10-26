@@ -20,7 +20,7 @@ export async function generateMetadata({params}:{params:Params}):Promise<Metadat
  const url=localPath(locale)+"initiative/"+id+"/";
  return {
   title,description,
-  openGraph:{type:"website",siteName:"MonarQue Group S.A.S.",title,description,url:SITE_URL+url,locale:locale==="fr"?"fr_CD":"en_US"},
+  openGraph:{type:"website",siteName:"MonarQue Group",title,description,url:SITE_URL+url,locale:locale==="fr"?"fr_CD":"en_US"},
   twitter:{card:"summary",title,description},
   alternates:{canonical:url,languages:{fr:"/fr/initiative/"+id+"/",en:"/en/initiative/"+id+"/","x-default":"/fr/initiative/"+id+"/"}}
  };
@@ -69,7 +69,7 @@ export default async function InitiativePage({params}:{params:Params}){
  const currentIndex=atlasIds.indexOf(item.id);
  const suggested=[1,2].map(offset=>atlasIds[(currentIndex+offset)%atlasIds.length]);
  return <>
-   <section className={"atlas-deep-hero atlas-deep-hero-"+item.id}>
+   <section className={"atlas-deep-hero atlas-project-heading atlas-deep-hero-"+item.id}>
     <div className="atlas-shell atlas-deep-hero-grid">
       <div className="atlas-deep-hero-copy">
         <div className="atlas-deep-breadcrumb"><Link href={localPath(locale,"ecosysteme")}>{locale==="fr"?"Écosystème":"Ecosystem"}</Link><span aria-hidden="true">/</span><span>{item.name}</span></div>
