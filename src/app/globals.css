@@ -387,9 +387,10 @@ a:hover .atlas-link-arrow,a:hover .atlas-arrow,.atlas-domain-tabs button:hover b
 .atlas-deep-cover-label,.atlas-deep-cover-footer{font-size:10px;font-weight:800;letter-spacing:.18em}
 .atlas-deep-cover strong{z-index:1;font-size:clamp(34px,4vw,68px);letter-spacing:-.06em;overflow-wrap:anywhere}
 .atlas-deep-cover-orbit{position:absolute;width:88%;aspect-ratio:1;top:10%;left:5%;transform:rotate(-20deg)}
-.atlas-deep-cover-orbit span{position:absolute;inset:9%;border:2px solid rgba(18,52,37,.32);border-radius:44% 56% 66% 34% / 53% 37% 63% 47%;transform:rotate(20deg)}
-.atlas-deep-cover-orbit span:nth-child(2){inset:19%;transform:rotate(66deg);border-width:18px;opacity:.48}
-.atlas-deep-cover-orbit span:nth-child(3){inset:31%;transform:rotate(-44deg);border-width:3px}
+.atlas-deep-cover-orbit span{--orbit-angle:20deg;position:absolute;inset:9%;border:2px solid rgba(18,52,37,.32);border-radius:44% 56% 66% 34% / 53% 37% 63% 47%;transform:rotate(var(--orbit-angle));animation:atlasDeepOrbit 48s linear infinite}
+.atlas-deep-cover-orbit span:nth-child(2){--orbit-angle:66deg;inset:19%;border-width:18px;opacity:.48;animation-duration:64s;animation-direction:reverse}
+.atlas-deep-cover-orbit span:nth-child(3){--orbit-angle:-44deg;inset:31%;border-width:3px;animation-duration:56s}
+@keyframes atlasDeepOrbit{to{transform:rotate(calc(var(--orbit-angle) + 360deg))}}
 .atlas-deep-cover-zingatia::before{background:radial-gradient(circle at 22% 22%,#f2e7cd,#d1b2a1 62%,#8f6a56)}
 .atlas-deep-cover-ltex::before{background:radial-gradient(circle at 78% 23%,#bdd7c9,#6d9885 58%,#315d56)}
 .atlas-deep-cover-monarque-connect::before{background:radial-gradient(circle at 22% 40%,#a5bbb0,#5b7f70 65%,#1e4034)}
@@ -445,4 +446,4 @@ a:hover .atlas-link-arrow,a:hover .atlas-arrow,.atlas-domain-tabs button:hover b
 @media(max-width:1000px){.atlas-deep-hero-grid{grid-template-columns:minmax(0,1.1fr) minmax(260px,.9fr);gap:26px}.atlas-deep-cover{min-height:430px;padding:22px}.atlas-deep-hero h1{font-size:clamp(54px,7vw,92px)}}
 @media(max-width:790px){.atlas-deep-hero{padding:30px 0 55px}.atlas-deep-hero-grid{grid-template-columns:1fr;gap:40px}.atlas-deep-status{margin-top:38px}.atlas-deep-category{margin-top:30px}.atlas-deep-hero h1{font-size:clamp(54px,11vw,88px)}.atlas-deep-hero h1 em{font-size:clamp(38px,9vw,66px)}.atlas-deep-cover{min-height:370px}.atlas-deep-meta-inner{grid-template-columns:1fr}.atlas-deep-meta-inner>div{padding:14px 0;border-right:0;border-bottom:1px solid var(--line)}.atlas-deep-entry{grid-template-columns:1fr;padding-top:76px;padding-bottom:75px;gap:22px}.atlas-deep-content{grid-template-columns:1fr}.atlas-deep-aside{display:none}.atlas-deep-chapter{padding:55px 0 65px}.atlas-deep-faq{padding:70px 0 90px}.atlas-deep-next{padding:77px 0}}
 @media(max-width:480px){.atlas-deep-cover{min-height:310px}.atlas-deep-cover strong{font-size:34px}.atlas-deep-hero h1{font-size:clamp(44px,13vw,68px)}.atlas-deep-next-links{grid-template-columns:1fr}.atlas-deep-next-links a+a{padding-left:0;border-left:0}.atlas-deep-hero-actions{align-items:stretch;flex-direction:column}.atlas-deep-quiet-link{align-self:flex-start}}
-@media(prefers-reduced-motion:reduce){.atlas-deep-aside nav a,.atlas-deep-faq details summary>span{transition:none}}
+@media(prefers-reduced-motion:reduce){.atlas-deep-cover-orbit span{animation:none}.atlas-deep-aside nav a,.atlas-deep-faq details summary>span{transition:none}}

@@ -9,6 +9,14 @@ test("initiative hero uses the full desktop shell width",async({page})=>{
   expect(shellWidth).toBeGreaterThan(1440*.8);
 });
 
+test("initiative cover orbits animate and respect reduced motion",async({page})=>{
+  await page.goto("/fr/initiative/zingatia/");
+  const orbit=page.locator(".atlas-deep-cover-orbit span").first();
+  await expect(orbit).toHaveCSS("animation-name",/atlasDeepOrbit/);
+  await page.emulateMedia({reducedMotion:"reduce"});
+  await expect(orbit).toHaveCSS("animation-name","none");
+});
+
 test("initiative heroes show a concise introduction without manuscript markup",async({page})=>{
   for(const locale of ["fr","en"])for(const id of ids){
     const route=`/${locale}/initiative/${id}/`;
