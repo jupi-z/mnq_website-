@@ -99,8 +99,7 @@ export function AtlasArt({label}:{label:string}){
     return ()=>{window.cancelAnimationFrame(frame);ro.disconnect();io.disconnect();media.removeEventListener("change",changes);host.removeEventListener("pointermove",onPointer);host.removeEventListener("pointerleave",leave);};
   },[]);
   return <div className="atlas-art" ref={hostRef}>
-    <canvas ref={canvasRef} aria-hidden="true"/>
-    <div className="atlas-art-top"><span>MONARQUE / ABSTRACT STUDY</span><span className="atlas-art-index">04</span></div>
-    <div className="atlas-art-bottom"><span><i className="atlas-dot"/>{label}</span><button type="button" aria-label={paused?"Resume animation":"Pause animation"} aria-pressed={paused} onClick={()=>{pausedRef.current=!pausedRef.current;setPaused(pausedRef.current);}}>{paused?"▶":"Ⅱ"}</button></div>
+    <canvas ref={canvasRef} role="img" aria-label={label}/>
+    <button className="atlas-art-control" type="button" aria-label={paused?"Resume animation":"Pause animation"} aria-pressed={paused} onClick={()=>{pausedRef.current=!pausedRef.current;setPaused(pausedRef.current);}}>{paused?"▶":"Ⅱ"}</button>
   </div>;
 }

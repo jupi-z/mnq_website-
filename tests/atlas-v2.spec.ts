@@ -9,6 +9,13 @@ for(const locale of ["fr","en"] as const){
     const background=await page.locator("body").evaluate(el=>getComputedStyle(el).backgroundColor);
     expect(background).toBe("rgb(245, 243, 236)");
     await expect(page.locator(".atlas-forest")).toBeVisible();
+    const artBackground=await page.locator(".atlas-art").evaluate(el=>getComputedStyle(el).backgroundColor);
+    expect(artBackground).toBe("rgba(0, 0, 0, 0)");
+    await expect(page.locator(".atlas-art-top, .atlas-art-bottom")).toHaveCount(0);
+    const pause=page.getByRole("button",{name:"Pause animation"});
+    await expect(pause).toBeVisible();
+    await pause.click();
+    await expect(page.getByRole("button",{name:"Resume animation"})).toHaveAttribute("aria-pressed","true");
   });
   test("Atlas V2 "+locale+" ecosystem filtering and initiative details",async({page})=>{
     await page.goto("/"+locale+"/ecosysteme/");
