@@ -9,6 +9,7 @@ export function generateStaticParams() { return locales.map(locale=>({locale}));
 export const dynamicParams = false;
 export const metadata:Metadata = {
   metadataBase:new URL(SITE_URL),
+  applicationName:"MonarQue Group",
   robots:{index:SITE_READY,follow:SITE_READY},
   icons:{icon:[{url:"/favicon.ico",type:"image/x-icon"},{url:"/brand/icone.webp",type:"image/webp"}]}
 };

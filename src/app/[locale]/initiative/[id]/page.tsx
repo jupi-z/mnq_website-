@@ -2,7 +2,7 @@ import type {Metadata} from "next";
 import Link from "next/link";
 import {notFound} from "next/navigation";
 import {atlasIds,atlasInitiative,atlasWords} from "@/lib/atlas";
-import {isLocale,locales,localPath} from "@/lib/site";
+import {isLocale,locales,localPath,SITE_URL} from "@/lib/site";
 
 type Params=Promise<{locale:string;id:string}>;
 export const dynamicParams=false;
@@ -10,7 +10,15 @@ export function generateStaticParams(){return locales.flatMap(locale=>atlasIds.m
 export async function generateMetadata({params}:{params:Params}):Promise<Metadata>{
  const {locale,id}=await params;if(!isLocale(locale))return {};
  const item=atlasInitiative(locale,id);if(!item)return {};
- return {title:item.name+" | MonarQue Group S.A.S.",description:item.description,alternates:{canonical:"/"+locale+"/initiative/"+id+"/",languages:{fr:"/fr/initiative/"+id+"/",en:"/en/initiative/"+id+"/"}}};
+ const title=item.name+" | MonarQue Group";
+ const url=localPath(locale)+"initiative/"+id+"/";
+ return {
+  title,
+  description:item.description,
+  openGraph:{type:"website",siteName:"MonarQue Group",title,description:item.description,url:SITE_URL+url,locale:locale==="fr"?"fr_CD":"en_US"},
+  twitter:{card:"summary",title,description:item.description},
+  alternates:{canonical:url,languages:{fr:"/fr/initiative/"+id+"/",en:"/en/initiative/"+id+"/","x-default":"/fr/initiative/"+id+"/"}}
+ };
 }
 export default async function InitiativePage({params}:{params:Params}){
  const {locale,id}=await params;if(!isLocale(locale))notFound();
