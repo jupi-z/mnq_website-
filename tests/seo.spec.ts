@@ -26,6 +26,9 @@ test("Public home exposes canonical, language alternatives and truthful organiza
     expect.objectContaining({propertyID:"RCCM",value:"CD/KWZ/RCCM/26-B-00523"}),
     expect.objectContaining({propertyID:"Identification nationale",value:"14-F4300-N00001Y"})
   ]));
+  await page.goto("/fr/groupe/");
+  await expect(page.locator('meta[name="robots"]')).toHaveAttribute("content",indexingEnabled?/index/:/noindex/);
+  if(indexingEnabled) await expect(page.locator('meta[name="robots"]')).not.toHaveAttribute("content",/noindex/);
 });
 
 test("Robots and sitemap include only pages intended for search results",async({page,request})=>{
