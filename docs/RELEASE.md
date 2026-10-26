@@ -26,6 +26,12 @@
 - [x] Exécuter l'audit, les corrections de confidentialité et l'essai de préproduction; voir le rapport actualisé pour les preuves et les limites.
 - [x] Build public avec `NEXT_PUBLIC_SITE_READY=false`; `robots.txt` renvoie `Disallow: /` et les pages portent `noindex, nofollow`. L'indexation reste désactivée.
 
+## Décision d'indexation — 26 octobre 2026
+- La direction autorise explicitement l'indexation publique à compter de cette date. Cette instruction permet le changement technique de visibilité; elle ne vaut pas certification juridique indépendante.
+- Les routes institutionnelles substantielles et les six fiches d'initiatives bilingues sont destinées à l'indexation. Les pages « Actualités » et « Réalisations », encore éditorialement provisoires, restent `noindex` et sont exclues du sitemap jusqu'à leur enrichissement.
+- Le site reste préopérationnel : aucune activité, réalisation, filiale, clientèle ou disponibilité commerciale n'est déclarée par le seul fait de l'indexation.
+- Les formalités déclaratives et de transfert de données non documentées plus haut restent une réserve de conformité à traiter; elles ne sont pas présentées comme résolues par cette décision.
+
 ## Définition du terme « finalisé »
 **Finalisé techniquement :** le code du portail, ses assets requis et ses tests sont prêts pour revue. **Publié :** le domaine dessert réellement les fichiers validés sur une infrastructure maintenue avec une politique de données et des mentions légales vérifiées. Les deux états ne doivent jamais être confondus.
 

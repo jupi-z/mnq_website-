@@ -15,11 +15,12 @@ export async function generateMetadata({params}:{params:Params}):Promise<Metadat
   return {
     title:page.title+" | MonarQue Group S.A.S.",
     description:page.intro,
-    openGraph:{type:"website",siteName:"MonarQue Group S.A.S.",title:page.title+" | MonarQue Group S.A.S.",description:page.intro,url:localPath(locale,slug),locale:locale==="fr"?"fr_CD":"en_US"},
-    twitter:{card:"summary",title:page.title+" | MonarQue Group S.A.S.",description:page.intro},
+    openGraph:{type:"website",siteName:"MonarQue Group",title:page.title+" | MonarQue Group",description:page.intro,url:localPath(locale,slug),locale:locale==="fr"?"fr_CD":"en_US"},
+    twitter:{card:"summary",title:page.title+" | MonarQue Group",description:page.intro},
+    robots:slug==="actualites"||slug==="realisations"?{index:false,follow:true}:undefined,
     alternates:{
       canonical:localPath(locale,slug),
-      languages:{fr:localPath("fr",slug),en:localPath("en",slug)}
+      languages:{fr:localPath("fr",slug),en:localPath("en",slug),"x-default":localPath("fr",slug)}
     }
   };
 }
